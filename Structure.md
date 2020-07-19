@@ -11,8 +11,8 @@ App Structure
 +---● components
 |   |
 |   |--DCandidateForm.js (form operations) - child      // FeriadoForm
-|   |--DCandidates.js  (list of records) - parent       // ListaFeriados
-|   |--useForm.js (handles common form opearations)
+|   |--DCandidates.js  (list of records) - parent       // FeriadosList
+|   |--useForm.js (handles common form opearations)     // FeriadosHandler
 |
 |---● reducers
 |   |
