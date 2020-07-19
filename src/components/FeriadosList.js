@@ -12,7 +12,7 @@ const FeriadosList = (props) => {
     // const [x, setX] = useState(0);
     // setX(5);
 
-    const [dbg, set_dbg] = useState(true);
+    const [dbg, set_dbg] = useState(false);
     const [x, setX] = useState(0);
     const [hasData, set_hasData] = useState(false);
     const [currIdx, set_currIdx] = useState(undefined);
@@ -35,7 +35,7 @@ const FeriadosList = (props) => {
     return (
         <div>
             <div className="info-group">
-                Dbg Info
+                {/* Dbg Info */}
                 <div className="info-buttons">
                     <button className="info-button" onClick={() => set_dbg(!dbg)} >  {dbg ? "DeBuGgInG!" : "MuTeD"} </button>
                     <button className="info-button" onClick={() => setX(x + 1)} > Whole reload </button>
@@ -74,86 +74,85 @@ const FeriadosList = (props) => {
             form FeriadosList props: AAAAAAAAAAA
             <hr />
             <div className="db-show__area db-data__area">
-                db-show__area
-                db-data__area
-                <br />
-                <div className="db-data__group">
-                    db-data__group
+                {dbg ? "db-show__area db-data__area" : ""}
+                    < br />
+                    <div className="db-data__group">
+                        db-data__group
                     <div className="db-data__label">
-                        db-data__label: Listado Feriados
+                            db-data__label: Listado Feriados
 
                       </div>
-                    <div className="db-data__rows">
-                        db-data__rows
+                        <div className="db-data__rows">
+                            db-data__rows
 
                         <table>
 
-                            <thead>
-                                <tr>
-                                    <th> {dbg ? "_id" : ""} </th>
-                                    <th> id </th>
-                                    <th> motivo </th>
-                                    <th> tipo </th>
-                                    <th> mes </th>
-                                    <th> dia </th>
-                                    <td> {dbg ? "__v" : ""} </td>
-                                </tr>
-                            </thead>
+                                <thead>
+                                    <tr>
+                                        <th> {dbg ? "_id" : ""} </th>
+                                        <th> id </th>
+                                        <th> motivo </th>
+                                        <th> tipo </th>
+                                        <th> mes </th>
+                                        <th> dia </th>
+                                        <td> {dbg ? "__v" : ""} </td>
+                                    </tr>
+                                </thead>
 
-                            <tbody>
+                                <tbody>
 
 
-                                {
-                                    props.feriadosList.map((r, i) => {
-                                        return (
-                                            <tr key={i} >
-                                                <td>  {dbg ? r._id : ""}      </td>
-                                                <td>  {r.id}     </td>
-                                                <td>  {r.motivo}         </td>
-                                                <td>  {r.tipo}       </td>
-                                                <td>  {r.mes}      </td>
-                                                <td>  {r.dia}      </td>
-                                                <td>  {dbg ? r.__v : ""}      </td>
-                                            </tr>
+                                    {
+                                        props.feriadosList.map((r, i) => {
+                                            return (
+                                                <tr key={i} >
+                                                    <td>  {dbg ? r._id : ""}      </td>
+                                                    <td>  {r.id}     </td>
+                                                    <td>  {r.motivo}         </td>
+                                                    <td>  {r.tipo}       </td>
+                                                    <td>  {r.mes}      </td>
+                                                    <td>  {r.dia}      </td>
+                                                    <td>  {dbg ? r.__v : ""}      </td>
+                                                </tr>
 
-                                        )
-                                    })
-                                }
+                                            )
+                                        })
+                                    }
 
-                            </tbody>
+                                </tbody>
 
-                        </table>
+                            </table>
 
-                        {
-                            props.feriadosList.map((r, i) => {
-                                return (
-                                    <div key={i} >
-                                        <br /> i: {i}  r: { r.motivo}
-                                        {dbg ||
-                                            <p>  <br /> r: {JSON.stringify(r)}</p>
-                                        }
-                                        <FeriadoForm
-                                            {...({ currIdx, set_currIdx })}
-                                        ></FeriadoForm>
-                                    </div>
-                                )
-                            })
-                        }
+                            {
+                                props.feriadosList.map((r, i) => {
+                                    return (
+                                        <div key={i} >
+                                            <br /> i: {i}  r: { r.motivo}
+                                            {dbg ||
+                                                <p>  <br /> r: {JSON.stringify(r)}</p>
+                                            }
+                                            <FeriadoForm
+                                                {...({ currIdx, set_currIdx })}
+                                            ></FeriadoForm>
+                                        </div>
+                                    )
+                                })
+                            }
 
+                        </div>
                     </div>
-                </div>
 
-                <div className="db-datum__group">
-                    db-datum__group
+                    <div className="db-datum__group">
+                        db-datum__group
                     <div className="db-datum__label">
-                        db-datum__label: Listado Feriados
+                            db-datum__label: Listado Feriados
 
                       </div>
-                    <div className="db-datum__rows">
-                        db-datum__rows
+                        <div className="db-datum__rows">
+                            db-datum__rows
 
                 </div>
-                </div>
+                    </div>
 
 
 
