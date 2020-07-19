@@ -17,11 +17,14 @@ const FeriadosList = (props) => {
 
     useEffect(() => {
         // return () => {effect};
-        props.doListFeriados()
+        props.doListFeriados();
+        console.log("EFFECT: doListFeriados");
+        console.log(props);
         // }, [x])
     }
         // , [] // componentDidMount
-        , [props.x] // componentDidMount
+        // , [props.x] // componentDidMount
+        , [x] // componentDidMount
         // , [props] // componentDidMount
     )
 
@@ -32,10 +35,22 @@ const FeriadosList = (props) => {
             <br /> hasData: {hasData}
             <br /> currIdx: {currIdx}
             <br /> props.list: {props.list}
+            {
+                props.feriadosList.map((r, i) => {
+                    return (
+                        <div key={i} >
+                            <br /> i: {i}
+                            <br /> r: {r?"r":"-"}
+                        </div>
+                    )
+                })
+            }
             <form>
 
             </form>
-            <button> add rec </button>
+            <button
+                onClick={() => setX(x + 1)}
+            > Show Year </button>
         </div>
     )
 }
