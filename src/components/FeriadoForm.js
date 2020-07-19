@@ -5,7 +5,6 @@ export const FeriadoForm = () => {
     return (
         <div>
             FeriadoForm
-
         </div>
     )
 }

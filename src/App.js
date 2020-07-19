@@ -20,10 +20,10 @@ function App() {
 
 
         </header>
-        <body className="zApp-body">
+        <div className="zApp-body">
           <FeriadosList></FeriadosList>
 
-        </body>
+        </div>
       </div>
 
     </Provider>
