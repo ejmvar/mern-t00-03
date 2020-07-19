@@ -31,9 +31,11 @@ const FeriadosList = (props) => {
             <br /> x: {x}
             <br /> hasData: {hasData}
             <br /> currIdx: {currIdx}
+            <br /> props.list: {props.list}
             <form>
 
             </form>
+            <button> add rec </button>
         </div>
     )
 }
