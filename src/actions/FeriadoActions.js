@@ -39,16 +39,18 @@ export const List = () => dispatch => {
     api.FeriadoApi().List()
         .then(
             resp => {
+                console.log("FeriadoApi.List resp:", resp);
                 dispatch({
-                    type: ACTION_TYPES.LIST, payload: resp.data // []
+                    type: ACTION_TYPES.LIST,
+                    payload: resp.data // []
                 })
             }
         )
-        .catch(err => console.error("API List:", err)
+        .catch(err => console.error("FeriadoApi.List:", err)
 
         )
         .finally(
-
+            () => console.info("FeriadoApi.List finished:")
         )
 }
 
