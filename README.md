@@ -15,7 +15,7 @@ yarn add axios
 
 ```
 
-## Filures
+## Failures
 
 ### FeriadosList
 
@@ -40,6 +40,12 @@ useEffect(() => {
 
 ## TODO
 
+### Redux-DevTools-extension" for PRODUCTION
+
+store.js
+
+        // FIXME: "remove Redux-DevTools-extension" for PRODUCTION
+
 ### api.js
 
 > Port setup for environment/start up
@@ -57,3 +63,16 @@ const UrlBase = "http://192.168.1.53:57016/" // NOTE: /api/v1
 ## Tuto from
 
 https://www.youtube.com/watch?v=NemyDIUcC64
+
+## Redux debug on Browser
+
+https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd/related?hl=es
+
+Info + Setup:
+
+> https://github.com/zalmoxisus/redux-devtools-extension
+
+Others:
+
+> https://github.com/zalmoxisus/redux-devtools-extension
+> ?? https://github.com/ChromeDevTools/awesome-chrome-devtools
