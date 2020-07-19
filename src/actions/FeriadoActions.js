@@ -35,7 +35,21 @@ export const ACTION_TYPES = {
 export const List = () => dispatch => {
     // ... operations
     // get api request
-    dispatch({ type: ACTION_TYPES.LIST, payload: [] })
+
+    api.FeriadoApi().List()
+        .then(
+            resp => {
+                dispatch({
+                    type: ACTION_TYPES.LIST, payload: resp.data // []
+                })
+            }
+        )
+        .catch(err => console.error("API List:", err)
+
+        )
+        .finally(
+
+        )
 }
 
 
