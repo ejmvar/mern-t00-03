@@ -16,6 +16,7 @@ const FeriadosList = (props) => {
     const [x, setX] = useState(0);
     const [hasData, set_hasData] = useState(false);
     const [currIdx, set_currIdx] = useState(undefined);
+    const [currDbId, set_currDbId] = useState(undefined);
 
     useEffect(() => {
         // return () => {effect};
@@ -33,14 +34,46 @@ const FeriadosList = (props) => {
 
     return (
         <div>
-            <button onClick={() => set_dbg(!dbg)} >  {dbg ? "DeBuGgInG!" : "MuTeD"} </button>
-            <button onClick={() => setX(x + 1)} > Whole reload </button>
-            form FeriadosList props:
+            <div className="info-group">
+                Dbg Info
+                <div className="info-buttons">
+                    <button className="info-button" onClick={() => set_dbg(!dbg)} >  {dbg ? "DeBuGgInG!" : "MuTeD"} </button>
+                    <button className="info-button" onClick={() => setX(x + 1)} > Whole reload </button>
+                </div>
+                <div className="info-data">
+                    Data:
+                    form FeriadosList props:
+                    <hr />
+                    <div className="info-data__group">
+                        <span className="info-data__label">  dbg:  </span>
+                        <span className="info-data__value"> {dbg ? "DeBuGgInG!" : "MuTeD"} </span>
+                    </div>
+                    <div className="info-data__group">
+                        <span className="info-data__label">  x:  </span>
+                        <span className="info-data__value"> {x} </span>
+                    </div>
+                    <div className="info-data__group">
+                        <span className="info-data__label"> hasData:  </span>
+                        <span className="info-data__value"> {hasData} </span>
+                    </div>
+                    <div className="info-data__group">
+                        <span className="info-data__label"> currIdx: </span>
+                        <span className="info-data__value">  {currIdx} </span>
+                    </div>
+                    <div className="info-data__group">
+                        <span className="info-data__label"> currDbId:  </span>
+                        <span className="info-data__value"> {currDbId} </span>
+                    </div>
+                    <div className="info-data__group">
+                        <span className="info-data__label"> props.list: </span>
+                        <span className="info-data__value">  {props.list} </span>
+                    </div>
+
+                </div>
+            </div>
+            form FeriadosList props: AAAAAAAAAAA
             <hr />
-            <br /> x: {x}
-            <br /> hasData: {hasData}
-            <br /> currIdx: {currIdx}
-            <br /> props.list: {props.list}
+ 
             {
                 props.feriadosList.map((r, i) => {
                     return (
@@ -52,7 +85,9 @@ const FeriadosList = (props) => {
                             {dbg ||
                                 <p>  <br /> r: {JSON.stringify(r)}</p>
                             }
-                            <FeriadoForm></FeriadoForm>
+                            <FeriadoForm
+                            {...({ currIdx, set_currIdx })}
+                            ></FeriadoForm>
                         </div>
                     )
                 })

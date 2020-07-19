@@ -29,3 +29,90 @@
 .App-link {
     color: #61dafb;
 }
+
+.info-group {
+    border: 3px double orange;
+    display: flex;
+    flex-direction: row;
+    height: 4rem;
+}
+
+.info-buttons {
+    border: 3px double green;
+    display: flex;
+    flex-direction: row;
+}
+
+.info-button {
+    border: 3px double green;
+    display: flex;
+    flex-direction: row;
+    height: 4rem;
+    width: 6rem;
+}
+
+.info-data {
+    border: 3px double blue;
+    display: flex;
+    flex-direction: row;
+}
+
+.info-data__group {
+    border: 3px double blue;
+    display: flex;
+    flex-direction: column;
+}
+
+.info-data__label {
+    border: 3px double blue;
+    display: flex;
+    flex-direction: row;
+    width: 5rem;
+}
+
+.info-data__value {
+    border: 3px double blue;
+    display: flex;
+    flex-direction: row;
+    width: 5rem;
+}
+
+.db-data__group {
+    border: 3px double blue;
+    display: flex;
+    flex-direction: column;
+}
+
+.db-data__label {
+    border: 3px double blue;
+    display: flex;
+    flex-direction: row;
+    width: 5rem;
+}
+
+.db-data__value {
+    border: 3px double blue;
+    display: flex;
+    flex-direction: row;
+    width: 5rem;
+}
+
+.db-datum__group {
+    border: 3px double blue;
+    display: flex;
+    flex-direction: column;
+}
+
+.db-datum__label {
+    border: 3px double blue;
+    display: flex;
+    flex-direction: row;
+    width: 5rem;
+}
+
+.db-datum__value {
+    border: 3px double blue;
+    display: flex;
+    flex-direction: row;
+    width: 5rem;
+}
