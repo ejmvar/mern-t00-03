@@ -86,7 +86,21 @@ const FeriadosList = (props) => {
                     <div className="db-data__rows">
                         db-data__rows
 
+                        <table>
 
+                            <thead>
+                                <tr>
+                                    <th> _id </th>
+                                    <th> id </th>
+                                    <th> motivo </th>
+                                    <th> tipo </th>
+                                    <th> mes </th>
+                                    <th> dia </th>
+                                    <td> __v </td>
+                                </tr>
+                            </thead>
+
+                        </table>
 
                         {
                             props.feriadosList.map((r, i) => {
