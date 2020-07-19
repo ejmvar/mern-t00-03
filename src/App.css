@@ -104,6 +104,12 @@
     flex-direction: column;
 }
 
+.db-data__row {
+    border: 3px double lightgray;
+    /* display: flex; */
+    flex-direction: column;
+}
+
 .db-datum__area {
     border: 3px double blue;
     display: flex;
@@ -111,9 +117,9 @@
 }
 
 .db-datum__group {
-    border: 3px double blue;
+    border: 3px double lightgray;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
 }
 
 .db-datum__label {

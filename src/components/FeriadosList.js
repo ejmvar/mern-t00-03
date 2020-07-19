@@ -32,6 +32,8 @@ const FeriadosList = (props) => {
         // , [x] // componentDidMount : NOTE: works OK
     )
 
+
+
     return (
         <div>
             <div className="info-group">
@@ -100,14 +102,15 @@ const FeriadosList = (props) => {
                                 {
                                     props.feriadosList.map((r, i) => {
                                         return (
-                                            <tr key={i} >
+                                            <tr key={i} className="b-data__row"
+                                                onClick={() => { set_currIdx(i); set_currDbId(r._id); }} >
                                                 <td>  {dbg ? r._id : ""}      </td>
-                                                <td>  {r.id}     </td>
-                                                <td>  {r.motivo}         </td>
-                                                <td>  {r.tipo}       </td>
-                                                <td>  {r.mes}      </td>
-                                                <td>  {r.dia}      </td>
-                                                <td>  {dbg ? r.__v : ""}      </td>
+                                                <td>  {r.id}                </td>
+                                                <td>  {r.motivo}            </td>
+                                                <td>  {r.tipo}              </td>
+                                                <td>  {r.mes}               </td>
+                                                <td>  {r.dia}               </td>
+                                                <td>  {dbg ? r.__v : ""}    </td>
                                             </tr>
 
                                         )
@@ -122,7 +125,9 @@ const FeriadosList = (props) => {
                 </div>
 
                 <div className="db-datum__group">
-                    db-datum__group for currDbId: {currDbId}
+                    db-datum__group for <br />
+                    currDbId: {currDbId} <br />
+                    currIdx: {currIdx} <br />
                     <div className="db-datum__label">
                         db-datum__label: Listado Feriados
 
