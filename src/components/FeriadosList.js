@@ -86,7 +86,7 @@ const FeriadosList = (props) => {
                       </div>
                     <div className="db-data__rows">
                         db-data__rows
-                        <table>
+                        <table className="db-data__table">
                             <thead>
                                 <tr>
                                     <th> {dbg ? "_id" : ""} </th>
@@ -102,7 +102,7 @@ const FeriadosList = (props) => {
                                 {
                                     props.feriadosList.map((r, i) => {
                                         return (
-                                            <tr key={i} className="b-data__row"
+                                            <tr key={i} className="db-data__table-row"
                                                 onClick={() => { set_currIdx(i); set_currDbId(r._id); }} >
                                                 <td>  {dbg ? r._id : ""}      </td>
                                                 <td>  {r.id}                </td>
@@ -125,17 +125,34 @@ const FeriadosList = (props) => {
                 </div>
 
                 <div className="db-datum__group">
-                    db-datum__group for <br />
-                    currDbId: {currDbId} <br />
-                    currIdx: {currIdx} <br />
+                    <div className="db-datum__area-head">
+                        <p>
+                            {!currIdx ?
+                                "Indique la línea del feriado de interés para ver el detalle en esta área"
+                                :
+                                ("Feriado: " + props.feriadosList[currIdx].motivo)
+                            }</p>
+
+                        <p> db-datum__area-head </p>
+                        <p> db-datum__group for </p>
+                        <p> currDbId: <b>{currDbId}</b> </p>
+                        <p> currIdx: <b>{currIdx}</b> </p>
+
+                    </div>
                     <div className="db-datum__label">
                         db-datum__label: Listado Feriados
 
                       </div>
+                    {currIdx ?
+                        "NOSTRAR!!"
+                        : "naaa"}
                     <div className="db-datum__rows">
                         db-datum__rows
 
-                </div>
+                        <FeriadoForm>
+                            dentro de FeriadoForm
+                        </FeriadoForm>
+                    </div>
                 </div>
 
             </div>

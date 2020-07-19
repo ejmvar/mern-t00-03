@@ -104,10 +104,27 @@
     flex-direction: column;
 }
 
-.db-data__row {
+.db-data__table {
     border: 3px double lightgray;
+    border: 5px double yellow;
     /* display: flex; */
     flex-direction: column;
+    pad: 2px;
+    margin: 2p;
+}
+
+.db-data__table-row {
+    border: 3px double lightgray;
+    border: 5px double yellow;
+    /* display: flex; */
+    flex-direction: column;
+    pad: 2px;
+    margin: 2p;
+    /* font-size: 1.1rem; */
+    /* font-size: 1.5rem; */
+    /* font-size: .85rem; */
+    /* font-size: .95rem; */
+    font-size: 1rem;
 }
 
 .db-datum__area {
@@ -119,7 +136,27 @@
 .db-datum__group {
     border: 3px double lightgray;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+}
+
+.db-datum__area-head {
+    border: 3px double orange;
+    display: flex;
+    flex-direction: column;
+    font-weight: bolder;
+}
+
+.db-datum__area-head p {
+    /* border: 3px double orange; */
+    display: flex;
+    flex-direction: column;
+    font-weight: bolder;
+    margin: 2px;
+    padding: 3px;
+    box-sizing: border-box;
+    box-shadow: grey;
+    box-shadow: 6px -2px teal;
+    box-shadow: 3px 2px teal;
 }
 
 .db-datum__label {
