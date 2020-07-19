@@ -72,9 +72,6 @@ const FeriadosList = (props) => {
                 </div>
             </div>
             form FeriadosList props: AAAAAAAAAAA
-
-
-
             <hr />
             <div className="db-show__area db-data__area">
                 {dbg ? "db-show__area db-data__area" : ""}
@@ -87,9 +84,7 @@ const FeriadosList = (props) => {
                       </div>
                     <div className="db-data__rows">
                         db-data__rows
-
                         <table>
-
                             <thead>
                                 <tr>
                                     <th> {dbg ? "_id" : ""} </th>
@@ -101,10 +96,7 @@ const FeriadosList = (props) => {
                                     <td> {dbg ? "__v" : ""} </td>
                                 </tr>
                             </thead>
-
                             <tbody>
-
-
                                 {
                                     props.feriadosList.map((r, i) => {
                                         return (
@@ -125,8 +117,6 @@ const FeriadosList = (props) => {
                             </tbody>
 
                         </table>
-
-
 
                     </div>
                 </div>
