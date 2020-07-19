@@ -15,6 +15,25 @@ yarn add axios
 
 ```
 
+## Filures
+
+### FeriadosList
+
+As of tutos, "componentDidMount" can be replaced by "useEffect" with no "input" ...
+But:
+
+* if empty tuple, does not execute effect, so no api call, and no data
+* if no observed param it fires api call forever (seems that "any change" means "forever")
+
+``` js
+useEffect(() => {
+        // return () => {effect};
+        props.doListFeriados()
+        // }, [x])
+    }, [] // componentDidMount
+)
+```
+
 ## Tips
 
 * FeriadosList : replace componentDidMount -> (useState , useEffect) from React Hooks 

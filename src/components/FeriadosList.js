@@ -11,23 +11,29 @@ const FeriadosList = (props) => {
     // const [x, setX] = useState(0);
     // setX(5);
 
-    // useEffect(() => {
-    //     return () => {
-    //         effect
-    //     };
-    // }, [x])
-    // }, []) // componentDidMount
+    const [x, setX] = useState(0);
+    const [hasData, set_hasData] = useState(false);
+    const [currIdx, set_currIdx] = useState(undefined);
 
     useEffect(() => {
         // return () => {effect};
         props.doListFeriados()
         // }, [x])
-    }, []) // componentDidMount
-
+    }
+        // , [] // componentDidMount
+        , [props.x] // componentDidMount
+        // , [props] // componentDidMount
+    )
 
     return (
         <div>
             form FeriadosList props:
+            <br /> x: {x}
+            <br /> hasData: {hasData}
+            <br /> currIdx: {currIdx}
+            <form>
+
+            </form>
         </div>
     )
 }
