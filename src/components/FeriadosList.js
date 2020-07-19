@@ -4,6 +4,7 @@
 import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux';
 import * as actions from "../actions/FeriadoActions";
+import { FeriadoForm } from './FeriadoForm';
 
 
 const FeriadosList = (props) => {
@@ -11,6 +12,7 @@ const FeriadosList = (props) => {
     // const [x, setX] = useState(0);
     // setX(5);
 
+    const [dbg, set_dbg] = useState(true);
     const [x, setX] = useState(0);
     const [hasData, set_hasData] = useState(false);
     const [currIdx, set_currIdx] = useState(undefined);
@@ -24,13 +26,17 @@ const FeriadosList = (props) => {
     }
         // , [] // componentDidMount
         // , [props.x] // componentDidMount
-        , [x] // componentDidMount
         // , [props] // componentDidMount
+        , [hasData] // componentDidMount : NOTE: works OK
+        // , [x] // componentDidMount : NOTE: works OK
     )
 
     return (
         <div>
+            <button onClick={() => set_dbg(!dbg)} >  {dbg ? "DeBuGgInG!" : "MuTeD"} </button>
+            <button onClick={() => setX(x + 1)} > Whole reload </button>
             form FeriadosList props:
+            <hr />
             <br /> x: {x}
             <br /> hasData: {hasData}
             <br /> currIdx: {currIdx}
@@ -39,9 +45,14 @@ const FeriadosList = (props) => {
                 props.feriadosList.map((r, i) => {
                     return (
                         <div key={i} >
-                            <br /> i: {i}
-                            <br /> r: {r ? "r" : "-"}
-                            <br /> r: {JSON.stringify(r)}
+                            <br /> i: {i}  r: { r.motivo}
+                            {/* <br /> i: {i} */}
+                            {/* <br /> r: {r ? "r" : "-"} */}
+                            {/* <br /> r: {JSON.stringify(r)} */}
+                            {dbg ||
+                                <p>  <br /> r: {JSON.stringify(r)}</p>
+                            }
+                            <FeriadoForm></FeriadoForm>
                         </div>
                     )
                 })
@@ -49,9 +60,6 @@ const FeriadosList = (props) => {
             <form>
 
             </form>
-            <button
-                onClick={() => setX(x + 1)}
-            > Show Year </button>
         </div>
     )
 }

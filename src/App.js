@@ -13,24 +13,17 @@ function App() {
 
     <Provider store={store}>
 
-      <div className="App">
-        <header className="App-header">
+      <div className="zApp">
+        <header className="zApp-header">
 
           <FeriadoForm></FeriadoForm>
+
+
+        </header>
+        <body className="zApp-body">
           <FeriadosList></FeriadosList>
 
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-        </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-        </a>
-        </header>
+        </body>
       </div>
 
     </Provider>
@@ -40,3 +33,4 @@ function App() {
 }
 
 export default App;
+
