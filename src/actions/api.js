@@ -1,7 +1,7 @@
 const { default: axios } = require("axios");
 
 // FIXME: move to constants or environment
-const UrlBase = "http://192.168.1.53:57016/"; // NOTE: /api/v1
+const UrlBase = "http://192.168.1.53:57016"; // NOTE: /api/v1
 const UrlList = "/feriados/";
 const UrlGet = "/feriados/";
 const UrlUpdt = "/feriados/";

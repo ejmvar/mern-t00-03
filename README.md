@@ -15,6 +15,10 @@ yarn add axios
 
 ```
 
+## Tips
+
+* FeriadosList : replace componentDidMount -> (useState , useEffect) from React Hooks 
+
 ## TODO
 
 ### api.js

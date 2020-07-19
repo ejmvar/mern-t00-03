@@ -1,11 +1,30 @@
 
 
-import React, { Component } from 'react'
+// import React, { Component } from 'react'
+import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux';
 import * as actions from "../actions/FeriadoActions";
 
 
 const FeriadosList = (props) => {
+    // NOTE: example
+    // const [x, setX] = useState(0);
+    // setX(5);
+
+    // useEffect(() => {
+    //     return () => {
+    //         effect
+    //     };
+    // }, [x])
+    // }, []) // componentDidMount
+
+    useEffect(() => {
+        // return () => {effect};
+        props.doListFeriados()
+        // }, [x])
+    }, []) // componentDidMount
+
+
     return (
         <div>
             form FeriadosList props:
@@ -34,8 +53,8 @@ const mapStateToProps = state => ({
 
 
 // NOTE: map actions to props
-const mapActionsToProps={
+const mapActionsToProps = {
     doListFeriados: actions.List
 }
 
-export default connect(mapStateToProps)(FeriadosList);
+export default connect(mapStateToProps, mapActionsToProps)(FeriadosList);
