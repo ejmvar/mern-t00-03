@@ -40,7 +40,8 @@ const FeriadosList = (props) => {
                     return (
                         <div key={i} >
                             <br /> i: {i}
-                            <br /> r: {r?"r":"-"}
+                            <br /> r: {r ? "r" : "-"}
+                            <br /> r: {JSON.stringify(r)}
                         </div>
                     )
                 })
