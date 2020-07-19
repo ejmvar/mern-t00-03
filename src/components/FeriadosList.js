@@ -73,7 +73,60 @@ const FeriadosList = (props) => {
             </div>
             form FeriadosList props: AAAAAAAAAAA
             <hr />
- 
+            <div className="db-show__area db-data__area">
+                db-show__area
+                db-data__area
+                <br />
+                <div className="db-data__group">
+                    db-data__group
+                    <div className="db-data__label">
+                        db-data__label: Listado Feriados
+
+                      </div>
+                    <div className="db-data__rows">
+                        db-data__rows
+
+
+                        {
+                            props.feriadosList.map((r, i) => {
+                                return (
+                                    <div key={i} >
+                                        <br /> i: {i}  r: { r.motivo}
+                                        {dbg ||
+                                            <p>  <br /> r: {JSON.stringify(r)}</p>
+                                        }
+                                        <FeriadoForm
+                                            {...({ currIdx, set_currIdx })}
+                                        ></FeriadoForm>
+                                    </div>
+                                )
+                            })
+                        }
+
+                    </div>
+                </div>
+
+                <div className="db-datum__group">
+                    db-datum__group
+                    <div className="db-datum__label">
+                        db-datum__label: Listado Feriados
+
+                      </div>
+                    <div className="db-datum__rows">
+                        db-datum__rows
+
+                </div>
+                </div>
+
+
+
+
+
+            </div>
+            <hr />
+                        debug data
+            <hr />
+
             {
                 props.feriadosList.map((r, i) => {
                     return (
@@ -86,7 +139,7 @@ const FeriadosList = (props) => {
                                 <p>  <br /> r: {JSON.stringify(r)}</p>
                             }
                             <FeriadoForm
-                            {...({ currIdx, set_currIdx })}
+                                {...({ currIdx, set_currIdx })}
                             ></FeriadoForm>
                         </div>
                     )

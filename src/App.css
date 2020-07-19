@@ -77,6 +77,15 @@
     width: 5rem;
 }
 
+
+/* .db-data__area { */
+
+.db-show__area {
+    border: 3px double blue;
+    display: flex;
+    flex-direction: row;
+}
+
 .db-data__group {
     border: 3px double blue;
     display: flex;
@@ -87,14 +96,18 @@
     border: 3px double blue;
     display: flex;
     flex-direction: row;
-    width: 5rem;
 }
 
-.db-data__value {
+.db-data__rows {
     border: 3px double blue;
     display: flex;
-    flex-direction: row;
-    width: 5rem;
+    flex-direction: column;
+}
+
+.db-datum__area {
+    border: 3px double blue;
+    display: flex;
+    flex-direction: column;
 }
 
 .db-datum__group {
@@ -107,12 +120,16 @@
     border: 3px double blue;
     display: flex;
     flex-direction: row;
-    width: 5rem;
+}
+
+.db-datum__values {
+    border: 3px double blue;
+    display: flex;
+    flex-direction: column;
 }
 
 .db-datum__value {
     border: 3px double blue;
     display: flex;
     flex-direction: row;
-    width: 5rem;
 }
