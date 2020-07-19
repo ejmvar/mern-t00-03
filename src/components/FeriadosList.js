@@ -90,15 +90,37 @@ const FeriadosList = (props) => {
 
                             <thead>
                                 <tr>
-                                    <th> _id </th>
+                                    <th> {dbg ? "_id" : ""} </th>
                                     <th> id </th>
                                     <th> motivo </th>
                                     <th> tipo </th>
                                     <th> mes </th>
                                     <th> dia </th>
-                                    <td> __v </td>
+                                    <td> {dbg ? "__v" : ""} </td>
                                 </tr>
                             </thead>
+
+                            <tbody>
+
+
+                                {
+                                    props.feriadosList.map((r, i) => {
+                                        return (
+                                            <tr key={i} >
+                                                <td>  {dbg ? r._id : ""}      </td>
+                                                <td>  {r.id}     </td>
+                                                <td>  {r.motivo}         </td>
+                                                <td>  {r.tipo}       </td>
+                                                <td>  {r.mes}      </td>
+                                                <td>  {r.dia}      </td>
+                                                <td>  {dbg ? r.__v : ""}      </td>
+                                            </tr>
+
+                                        )
+                                    })
+                                }
+
+                            </tbody>
 
                         </table>
 
