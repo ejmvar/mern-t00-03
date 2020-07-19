@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from './logo.svg';
+
 import './App.css';
 import { FeriadoForm } from './components/FeriadoForm';
 import FeriadosList from './components/FeriadosList';
@@ -10,31 +10,30 @@ import { Provider } from 'react-redux';
 
 function App() {
   return (
-    
+
     <Provider store={store}>
 
-    <div className="App">
-      <header className="App-header">
-        
-<FeriadoForm></FeriadoForm>
-<FeriadosList></FeriadosList>
+      <div className="App">
+        <header className="App-header">
 
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
+          <FeriadoForm></FeriadoForm>
+          <FeriadosList></FeriadosList>
+
+          <p>
+            Edit <code>src/App.js</code> and save to reload.
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+          <a
+            className="App-link"
+            href="https://reactjs.org"
+            target="_blank"
+            rel="noopener noreferrer"
           >
-          Learn React
+            Learn React
         </a>
-      </header>
-    </div>
-      
-          </Provider>
+        </header>
+      </div>
+
+    </Provider>
 
 
   );
