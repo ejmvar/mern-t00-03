@@ -149,13 +149,14 @@ const FeriadosList = (props) => {
                         : "naaa"}
                     <div className="db-datum__rows">
                         db-datum__rows
-                        <p> FeriadoShow </p>
-                        <FeriadoShow></FeriadoShow>
 
                         <p> FeriadoForm </p>
-                        <FeriadoForm>
-                            dentro de FeriadoForm
-                        </FeriadoForm>
+                        <FeriadoForm />
+
+                        <p> FeriadoShow </p>
+                        <FeriadoShow />
+
+
                     </div>
                 </div>
 
