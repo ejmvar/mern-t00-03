@@ -5,6 +5,7 @@ import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux';
 import * as actions from "../actions/FeriadoActions";
 import { FeriadoForm } from './FeriadoForm';
+import { FeriadoShow } from './FeriadoShow';
 
 
 const FeriadosList = (props) => {
@@ -148,7 +149,10 @@ const FeriadosList = (props) => {
                         : "naaa"}
                     <div className="db-datum__rows">
                         db-datum__rows
+                        <p> FeriadoShow </p>
+                        <FeriadoShow></FeriadoShow>
 
+                        <p> FeriadoForm </p>
                         <FeriadoForm>
                             dentro de FeriadoForm
                         </FeriadoForm>

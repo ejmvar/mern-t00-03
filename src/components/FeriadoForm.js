@@ -127,7 +127,7 @@ export const FeriadoForm = (props) => {
                                     >
                                     </input>
                                     {r._id} {(errors._id) ?
-                                        <p className="field-error"> err:   {errors._id}  </p>
+                                        <p className="field-error">    {errors._id}  </p>
                                         : <p className="field-ok"> &nbsp;  </p>}
                                 </td>
                             }
@@ -141,7 +141,7 @@ export const FeriadoForm = (props) => {
                                     >
                                     </input>
                                     {r.id} {(errors.id) ?
-                                        <p className="field-error"> err:   {errors.id}  </p>
+                                        <p className="field-error">    {errors.id}  </p>
                                         : <p className="field-ok"> &nbsp;  </p>}
                                 </td>
                             }
@@ -155,7 +155,7 @@ export const FeriadoForm = (props) => {
                                     >
                                     </input>
                                     {r.motivo} {(errors.motivo) ?
-                                        <p className="field-error"> err:   {errors.motivo}  </p>
+                                        <p className="field-error">    {errors.motivo}  </p>
                                         : <p className="field-ok"> &nbsp;  </p>}
                                 </td>
                             }
@@ -169,7 +169,7 @@ export const FeriadoForm = (props) => {
                                     >
                                     </input>
                                     {r.tipo} {(errors.tipo) ?
-                                        <p className="field-error"> err:   {errors.tipo}  </p>
+                                        <p className="field-error">    {errors.tipo}  </p>
                                         : <p className="field-ok"> &nbsp;  </p>}
                                 </td>
                             }
@@ -183,7 +183,7 @@ export const FeriadoForm = (props) => {
                                     >
                                     </input>
                                     {r.mes} {(errors.mes) ?
-                                        <p className="field-error"> err:   {errors.mes}  </p>
+                                        <p className="field-error">    {errors.mes}  </p>
                                         : <p className="field-ok"> &nbsp;  </p>}
                                 </td>
                             }
@@ -197,7 +197,7 @@ export const FeriadoForm = (props) => {
                                     >
                                     </input>
                                     {r.dia} {(errors.dia) ?
-                                        <p className="field-error"> err:   {errors.dia}  </p>
+                                        <p className="field-error">    {errors.dia}  </p>
                                         : <p className="field-ok"> &nbsp;  </p>}
                                 </td>
                             }
@@ -222,11 +222,17 @@ export const FeriadoForm = (props) => {
                     </p>
                 </div>
                 <div className="feriado__buttons">
+                    
+
+
+                    
                     <button type="submit" onSubmit={doSubmit} className="feriado__button"> Acepta </button>
                     <button type="reset" className="feriado__button"> Rechaza </button>
                 </div>
 
             </form>
+
+
 
         </div>
     )

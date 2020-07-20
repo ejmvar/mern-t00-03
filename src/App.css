@@ -280,10 +280,7 @@
 .feriado__buttons {
     border: 3px dotted red;
     display: flex;
-    /* flex-direction: row wrap; */
-    flex-direction: column wrap;
-    flex-direction: column;
-    /* flex-flow: row; */
+    flex-direction: row;
     justify-content: space-evenly;
 }
 
