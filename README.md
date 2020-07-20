@@ -86,7 +86,14 @@ Others:
 
 import {useForm} ...
 
-const 
+const {
+
+        values,
+        set_values,
+        doChange,
+        errors,
+        set_errors,
+    };
 
 ``` 
 ``` js 
@@ -116,7 +123,9 @@ export const useForm = (initState) => {
     return {
         values,
         set_values,
-        doChange
+        doChange,
+        errors,
+        set_errors,
     }
 
 }
