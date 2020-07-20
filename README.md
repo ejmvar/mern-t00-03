@@ -108,7 +108,7 @@ export const useForm = (initState) => {
         const {name, value}=ev.target
         console.log("doChange {name, value}:", {name, value}); 
         set_values({
-
+            ...values, [name]: value
         });
 
         console.log("doChange POS values:", values);

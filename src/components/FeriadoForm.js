@@ -22,14 +22,28 @@ export const FeriadoForm = (props) => {
         console.log("doChange PRE values:", values);
         const { name, value } = ev.target
         console.log("doChange {name,value}:", { name, value });
-        set_values({
 
+        set_values({
+            ...values, [name]: value
         });
 
         console.log("doChange POS values:", values);
     }
 
+    const doSubmit = ev => {
+        // ev.preventDefault();
 
+        // console.log("doSubmit ev:", ev);
+        // console.log("doSubmit PRE values:", values);
+        // // const { name, value } = ev.target
+        // // console.log("doSubmit {name,value}:", { name, value });
+        // // set_values({
+
+        // // });
+
+        // console.log("doSubmit POS values:", values);
+
+    }
 
     return (
         <div className="feriado-form">
@@ -37,7 +51,7 @@ export const FeriadoForm = (props) => {
                 FeriadoForm [NOTE: WIP]
             </p>
 
-            <form autoComplete="off" noValidate className="feriado-form" >
+            <form autoComplete="off" noValidate className="feriado-form" onSubmit={doSubmit} >
 
                 <table className="z-feriado-table">
                     <thead className="z-feriado__head">
