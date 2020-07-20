@@ -111,9 +111,9 @@ export const FeriadoForm = (props) => {
                         <tr>
 
                             <th className="z-feriado__head-label"> Campo </th>
-{editing?                            <th className="z-feriado__head-label"> Valor </th>
-:                            <th className="feriado__head-label__get"> Editado </th>
-}
+                            {editing ? <th className="z-feriado__head-label"> Valor </th>
+                                : <th className="feriado__head-label__get"> Editado </th>
+                            }
                         </tr>
                     </thead>
                     <tbody className="z-feriado-body">
