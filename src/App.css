@@ -290,3 +290,10 @@
 .feriado__button {
     width: 10rem;
 }
+
+.error-field {
+    color: red;
+    font-size: .7em;
+    font-weight: 500;
+    border: 3px solid orange;
+}

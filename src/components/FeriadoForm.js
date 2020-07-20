@@ -125,7 +125,10 @@ export const FeriadoForm = (props) => {
                                     name="_id" value={values._id} onChange={doChange}
                                 >
                                 </input>
-                                {r._id} </td>
+                                {r._id} { (errors._id) ? 
+                                                            <p className="error-field"> err:   {errors._id}  </p>
+                                                            :""}
+                                 </td>
                             <td> err:   {errors._id}  </td>
                         </tr>
                         <tr>
@@ -136,7 +139,10 @@ export const FeriadoForm = (props) => {
                                     name="id" value={values.id} onChange={doChange}
                                 >
                                 </input>
-                                {r.id} </td>
+                                {r.id} { (errors.id) ? 
+                                                            <p className="error-field"> err:   {errors.id}  </p>
+                                                            :""}
+                                 </td>
                             <td> err:   {errors.id}  </td>
                         </tr>
                         <tr>
@@ -147,7 +153,10 @@ export const FeriadoForm = (props) => {
                                     name="motivo" value={values.motivo} onChange={doChange}
                                 >
                                 </input>
-                                {r.motivo} </td>
+                                {r.motivo} { (errors.motivo) ? 
+                                                            <p className="error-field"> err:   {errors.motivo}  </p>
+                                                            :""}
+                                 </td>
                             <td> err:   {errors.motivo}  </td>
                         </tr>
                         <tr>
@@ -158,7 +167,10 @@ export const FeriadoForm = (props) => {
                                     name="tipo" value={values.tipo} onChange={doChange}
                                 >
                                 </input>
-                                {r.tipo} </td>
+                                {r.tipo} { (errors.tipo) ? 
+                                                            <p className="error-field"> err:   {errors.tipo}  </p>
+                                                            :""}
+                                 </td>
                             <td> err:   {errors.tipo}  </td>
                         </tr>
                         <tr>
@@ -169,7 +181,10 @@ export const FeriadoForm = (props) => {
                                     name="mes" value={values.mes} onChange={doChange}
                                 >
                                 </input>
-                                {r.mes} </td>
+                                {r.mes} { (errors.mes) ? 
+                                                            <p className="error-field"> err:   {errors.mes}  </p>
+                                                            :""}
+                                 </td>
                             <td> err:   {errors.mes}  </td>
                         </tr>
                         <tr>
@@ -180,7 +195,10 @@ export const FeriadoForm = (props) => {
                                     name="dia" value={values.dia} onChange={doChange}
                                 >
                                 </input>
-                                {r.dia} </td>
+                                {r.dia} { (errors.dia) ? 
+                                                            <p className="error-field"> err:   {errors.dia}  </p>
+                                                            :""}
+                                 </td>
                             <td> err:   {errors.dia}  </td>
                         </tr>
                     </tbody>
