@@ -176,3 +176,103 @@
     display: flex;
     flex-direction: row;
 }
+
+.feriado-form {
+    border: 5px double greenyellow;
+    display: flex;
+    flex-direction: column;
+}
+
+.feriado-form-head {
+    border: 5px double greenyellow;
+    display: flex;
+    flex-direction: row;
+}
+
+.feriado-table {
+    border: 5px solid black;
+    display: flex;
+    /* flex-direction: column; */
+}
+
+.feriado__table-body {
+    border: 5px solid yellow;
+    display: flex;
+    flex-direction: column;
+}
+
+.feriado__row {
+    border: 5px solid gree;
+    display: flex;
+    flex-direction: column;
+}
+
+.feriado__row-label {
+    border: 5px solid yellow;
+    display: flex;
+    flex-direction: column;
+}
+
+.feriado__row-value {
+    border: 5px solid yellow;
+    display: flex;
+    flex-direction: column;
+}
+
+.feriado__row-value__invalid {
+    border: 5px solid red;
+    display: flex;
+    flex-direction: column;
+}
+
+.feriado__table-head {
+    border: 5px solid gree;
+    display: flex;
+    flex-direction: column;
+}
+
+.feriado__head-label {
+    border: 5px solid yellow;
+    display: flex;
+    flex-direction: column;
+}
+
+.feriado__head-value {
+    border: 5px solid yellow;
+    display: flex;
+    flex-direction: column;
+}
+
+.feriado__head-value__invalid {
+    border: 5px solid red;
+    display: flex;
+    flex-direction: column;
+}
+
+.feriado__value-title,
+.feriado__value-show,
+.feriado__value-get {
+    font-size: 1.3rem;
+    ;
+}
+
+.feriado__value-title {
+    border: 1px dotted red;
+    font-weight: 500;
+    text-align: right;
+    padding-right: 1rem;
+}
+
+.feriado__value-show {
+    border: 1px dotted red;
+}
+
+.feriado__value-get {
+    border: 3px dotted red;
+    /* display: none; */
+}
+
+.feriado__head-label__get {
+    border: 3px dotted red;
+    /* display: none; */
+}

@@ -76,3 +76,54 @@ Others:
 
 > https://github.com/zalmoxisus/redux-devtools-extension
 > ?? https://github.com/ChromeDevTools/awesome-chrome-devtools
+
+## Tips
+
+### Form handling: common operations
+
+``` js 
+
+// inside: src/components/FeriadoForm.js
+
+import {useForm} ...
+
+const 
+
+```
+
+``` js 
+// useForm.js
+
+    // NOTE: can extract this for other forms
+
+import React, { Component, useState } from 'react'; 
+
+const useForm = (initState) => {
+
+    const [values, set_values] = useState(initState);
+
+    // NOTE: can extract this for other forms
+
+    const doChange = ev => {
+        console.log("doChange ev:", ev); 
+        console.log("doChange PRE values:", values); 
+        const {name, value}=ev.target
+        console.log("doChange {name, value}:", {name, value}); 
+        set_values({
+
+        });
+
+        console.log("doChange POS values:", values);
+    }
+    return {
+        values,
+        set_values,
+        doChange
+    }
+
+}
+
+    // NOTE: exports for reuse
+    export default useForm:
+
+``` js
