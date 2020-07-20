@@ -126,10 +126,9 @@ export const FeriadoForm = (props) => {
                                 >
                                 </input>
                                 {r._id} { (errors._id) ? 
-                                                            <p className="error-field"> err:   {errors._id}  </p>
-                                                            :""}
+                                                            <p className="field-error"> err:   {errors._id}  </p>
+                                                            : <p className="field-ok"> &nbsp;  </p>}
                                  </td>
-                            <td> err:   {errors._id}  </td>
                         </tr>
                         <tr>
                             <td className="feriado__value-title" > id </td>
@@ -140,10 +139,9 @@ export const FeriadoForm = (props) => {
                                 >
                                 </input>
                                 {r.id} { (errors.id) ? 
-                                                            <p className="error-field"> err:   {errors.id}  </p>
-                                                            :""}
+                                                            <p className="field-error"> err:   {errors.id}  </p>
+                                                            : <p className="field-ok"> &nbsp;  </p>}
                                  </td>
-                            <td> err:   {errors.id}  </td>
                         </tr>
                         <tr>
                             <td className="feriado__value-title" > motivo </td>
@@ -154,10 +152,9 @@ export const FeriadoForm = (props) => {
                                 >
                                 </input>
                                 {r.motivo} { (errors.motivo) ? 
-                                                            <p className="error-field"> err:   {errors.motivo}  </p>
-                                                            :""}
+                                                            <p className="field-error"> err:   {errors.motivo}  </p>
+                                                            : <p className="field-ok"> &nbsp;  </p>}
                                  </td>
-                            <td> err:   {errors.motivo}  </td>
                         </tr>
                         <tr>
                             <td className="feriado__value-title" > tipo </td>
@@ -168,10 +165,9 @@ export const FeriadoForm = (props) => {
                                 >
                                 </input>
                                 {r.tipo} { (errors.tipo) ? 
-                                                            <p className="error-field"> err:   {errors.tipo}  </p>
-                                                            :""}
+                                                            <p className="field-error"> err:   {errors.tipo}  </p>
+                                                            : <p className="field-ok"> &nbsp;  </p>}
                                  </td>
-                            <td> err:   {errors.tipo}  </td>
                         </tr>
                         <tr>
                             <td className="feriado__value-title" > mes </td>
@@ -182,10 +178,9 @@ export const FeriadoForm = (props) => {
                                 >
                                 </input>
                                 {r.mes} { (errors.mes) ? 
-                                                            <p className="error-field"> err:   {errors.mes}  </p>
-                                                            :""}
+                                                            <p className="field-error"> err:   {errors.mes}  </p>
+                                                            : <p className="field-ok"> &nbsp;  </p>}
                                  </td>
-                            <td> err:   {errors.mes}  </td>
                         </tr>
                         <tr>
                             <td className="feriado__value-title" > dia </td>
@@ -196,10 +191,9 @@ export const FeriadoForm = (props) => {
                                 >
                                 </input>
                                 {r.dia} { (errors.dia) ? 
-                                                            <p className="error-field"> err:   {errors.dia}  </p>
-                                                            :""}
+                                                            <p className="field-error"> err:   {errors.dia}  </p>
+                                                            : <p className="field-ok"> &nbsp;  </p>}
                                  </td>
-                            <td> err:   {errors.dia}  </td>
                         </tr>
                     </tbody>
                     <tfoot>
