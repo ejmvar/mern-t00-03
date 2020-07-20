@@ -1,7 +1,7 @@
 import React, { Component, useState } from 'react';
 
 
-export const FeriadoForm = () => {
+export const FeriadoForm = (props) => {
 
     const [r, set_r] = useState(0);
 
@@ -15,7 +15,8 @@ export const FeriadoForm = () => {
     }
     const [values, set_values] = useState(values_init);
 
-    // NOTE: can extract this for other forms
+    // NOTE: can extract this for other forms as "useForm"
+    // const {values, values_init, doChange} = useForm(values_init)
     const doChange = ev => {
         console.log("doChange ev:", ev);
         console.log("doChange PRE values:", values);
@@ -129,6 +130,11 @@ export const FeriadoForm = () => {
                         </tr>
                     </tfoot>
                 </table>
+
+                <div className="feriado__buttons">
+                    <button className="feriado__button"> Acepta </button>
+                    <button className="feriado__button"> Rechaza </button>
+                </div>
 
             </form>
 

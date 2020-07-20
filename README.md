@@ -82,15 +82,13 @@ Others:
 ### Form handling: common operations
 
 ``` js 
-
 // inside: src/components/FeriadoForm.js
 
 import {useForm} ...
 
 const 
 
-```
-
+``` 
 ``` js 
 // useForm.js
 
@@ -98,7 +96,7 @@ const
 
 import React, { Component, useState } from 'react'; 
 
-const useForm = (initState) => {
+export const useForm = (initState) => {
 
     const [values, set_values] = useState(initState);
 
@@ -122,8 +120,4 @@ const useForm = (initState) => {
     }
 
 }
-
-    // NOTE: exports for reuse
-    export default useForm:
-
-``` js
+```
