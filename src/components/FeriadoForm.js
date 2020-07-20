@@ -31,17 +31,17 @@ export const FeriadoForm = (props) => {
     }
 
     const doSubmit = ev => {
-        // ev.preventDefault();
+        ev.preventDefault();
 
-        // console.log("doSubmit ev:", ev);
-        // console.log("doSubmit PRE values:", values);
-        // // const { name, value } = ev.target
-        // // console.log("doSubmit {name,value}:", { name, value });
-        // // set_values({
+        console.log("doSubmit ev:", ev);
+        console.log("doSubmit PRE values:", values);
+        // const { name, value } = ev.target
+        // console.log("doSubmit {name,value}:", { name, value });
+        // set_values({
 
-        // // });
+        // });
 
-        // console.log("doSubmit POS values:", values);
+        console.log("doSubmit POS values:", values);
 
     }
 
@@ -146,8 +146,8 @@ export const FeriadoForm = (props) => {
                 </table>
 
                 <div className="feriado__buttons">
-                    <button className="feriado__button"> Acepta </button>
-                    <button className="feriado__button"> Rechaza </button>
+                    <button type="submit" onSubmit={doSubmit} className="feriado__button"> Acepta </button>
+                    <button type="reset"   className="feriado__button"> Rechaza </button>
                 </div>
 
             </form>
