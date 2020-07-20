@@ -24,6 +24,13 @@ export const ACTION_TYPES = {
     PRELOAD: "PRELOAD",
 }
 
+// NOTE: format day/month from string to number
+const formatData = data => ({
+    ...data,
+    mes: parseInt(data.mes),
+    dia: parseInt(data.dia),
+})
+
 // export const List = () => {
 //     return dispatch => {
 //         // ... operations
