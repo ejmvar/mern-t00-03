@@ -253,7 +253,6 @@
 .feriado__value-show,
 .feriado__value-get {
     font-size: 1.3rem;
-    ;
 }
 
 .feriado__value-title {
@@ -261,6 +260,7 @@
     font-weight: 500;
     text-align: right;
     padding-right: 1rem;
+    width: 6rem;
 }
 
 .feriado__value-show {

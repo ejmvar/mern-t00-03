@@ -6,7 +6,7 @@ export const FeriadoForm = (props) => {
     const FORM_ERROR = "Debe corregir los errores o RECHAZAR los cambios";
     const FORM_OK = "Puede ACEPTAR los cambios";
     const [r, set_r] = useState(0);
-    const [editing, set_editing] = useState(0);
+    const [editing, set_editing] = useState(true);
 
     const values_init = {
         _id: "",
@@ -111,7 +111,7 @@ export const FeriadoForm = (props) => {
                         <tr>
 
                             <th className="z-feriado__head-label"> Campo </th>
-                            {editing ? <th className="z-feriado__head-label"> Valor </th>
+                            {!editing ? <th className="z-feriado__head-label"> Valor </th>
                                 : <th className="feriado__head-label__get"> Editado </th>
                             }
                         </tr>
@@ -120,7 +120,7 @@ export const FeriadoForm = (props) => {
 
                         <tr>
                             <td className="feriado__value-title" > _id </td>
-                            {editing ? <td className="feriado__value-show" > {values._id} {r._id} </td>
+                            {!editing ? <td className="feriado__value-show" > {values._id} {r._id} </td>
                                 : <td className="feriado__value-get" >
                                     _id: <input type="text"
                                         name="_id" value={values._id} onChange={doChange}
@@ -134,7 +134,7 @@ export const FeriadoForm = (props) => {
                         </tr>
                         <tr>
                             <td className="feriado__value-title" > id </td>
-                            {editing ? <td className="feriado__value-show" > {values.id} {r.id} </td>
+                            {!editing ? <td className="feriado__value-show" > {values.id} {r.id} </td>
                                 : <td className="feriado__value-get" >
                                     id: <input type="text"
                                         name="id" value={values.id} onChange={doChange}
@@ -148,7 +148,7 @@ export const FeriadoForm = (props) => {
                         </tr>
                         <tr>
                             <td className="feriado__value-title" > motivo </td>
-                            {editing ? <td className="feriado__value-show" > {values.motivo} {r.motivo} </td>
+                            {!editing ? <td className="feriado__value-show" > {values.motivo} {r.motivo} </td>
                                 : <td className="feriado__value-get" >
                                     motivo: <input type="text"
                                         name="motivo" value={values.motivo} onChange={doChange}
@@ -162,7 +162,7 @@ export const FeriadoForm = (props) => {
                         </tr>
                         <tr>
                             <td className="feriado__value-title" > tipo </td>
-                            {editing ? <td className="feriado__value-show" > {values.tipo} {r.tipo} </td>
+                            {!editing ? <td className="feriado__value-show" > {values.tipo} {r.tipo} </td>
                                 : <td className="feriado__value-get" >
                                     tipo: <input type="text"
                                         name="tipo" value={values.tipo} onChange={doChange}
@@ -176,7 +176,7 @@ export const FeriadoForm = (props) => {
                         </tr>
                         <tr>
                             <td className="feriado__value-title" > mes </td>
-                            {editing ? <td className="feriado__value-show" > {values.mes} {r.mes} </td>
+                            {!editing ? <td className="feriado__value-show" > {values.mes} {r.mes} </td>
                                 : <td className="feriado__value-get" >
                                     mes: <input type="text"
                                         name="mes" value={values.mes} onChange={doChange}
@@ -190,7 +190,7 @@ export const FeriadoForm = (props) => {
                         </tr>
                         <tr>
                             <td className="feriado__value-title" > dia </td>
-                            {editing ? <td className="feriado__value-show" > {values.dia} {r.dia} </td>
+                            {!editing ? <td className="feriado__value-show" > {values.dia} {r.dia} </td>
                                 : <td className="feriado__value-get" >
                                     dia: <input type="text"
                                         name="dia" value={values.dia} onChange={doChange}
