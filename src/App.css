@@ -280,20 +280,13 @@
 .feriado__buttons {
     border: 3px dotted red;
     display: flex;
-    flex-direction: row wrap;
-    flex-flow: row;
-    /* flex: 1 1 0; */
-    /* width: 0; */
+    /* flex-direction: row wrap; */
+    flex-direction: column wrap;
+    flex-direction: column;
+    /* flex-flow: row; */
     justify-content: space-evenly;
 }
 
 .feriado__button {
-    /* flex: 1 1 50%; */
-    /* flex: 1 1 0; */
-    /* flex: 1 1 30%; */
     width: 10rem;
-    /* border: 3px dotted red;
-    display: flex;
-    flex-direction: row wrap;
-    flex-flow: column; */
 }
