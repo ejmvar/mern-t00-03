@@ -31,25 +31,19 @@ const formatData = data => ({
     dia: parseInt(data.dia),
 })
 
-// export const List = () => {
-//     return dispatch => {
-//         // ... operations
-//     }
-// }
 
 // and define "commands" for each action (specifying real code, reqs, etc)
 // NOTE: List === FetchAll
 export const List = () => dispatch => {
     // ... operations
     // get api request
-
     api.FeriadoApi().List()
         .then(
             resp => {
                 console.log("FeriadoApi.List resp:", resp);
                 dispatch({
                     type: ACTION_TYPES.LIST,
-                    payload: resp.data // []
+                    payload: resp.data
                 })
             }
         )
@@ -61,15 +55,37 @@ export const List = () => dispatch => {
         )
 }
 
+export const Update = (data, onSuccess) => dispatch => {
+    // ... operations
+    // get api request
+    data = formatData(data);
+    api.FeriadoApi().Update()
+        .then(
+            resp => {
+                console.log("FeriadoApi.List resp:", resp);
+                dispatch({
+                    type: ACTION_TYPES.UPDATE,
+                    payload: resp.data
+                })
+                onSuccess()
+            }
+
+        )
+        .catch(err => console.error("FeriadoApi.Update:", err)
+        )
+        .finally(
+            () => console.info("FeriadoApi.Update finished:")
+
+        )
+}
 
 
+        // TODO: borrar
 
-// TODO: borrar
+        // const mapStateToProps = (state) => ({
+        //     wwwwww
+        // })
 
-// const mapStateToProps = (state) => ({
-//     wwwwww
-// })
+        // const mapDispatchToProps = {
 
-// const mapDispatchToProps = {
-
-// }
+        // }
