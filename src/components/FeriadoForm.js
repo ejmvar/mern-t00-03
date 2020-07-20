@@ -3,8 +3,8 @@ import React, { Component, useState } from 'react';
 
 export const FeriadoForm = (props) => {
 
-    const FORM_ERROR="Debe corregir los errores o RECHAZAR los cambios";
-    const FORM_OK="Puede ACEPTAR los cambios";
+    const FORM_ERROR = "Debe corregir los errores o RECHAZAR los cambios";
+    const FORM_OK = "Puede ACEPTAR los cambios";
     const [r, set_r] = useState(0);
 
     const values_init = {
@@ -19,27 +19,34 @@ export const FeriadoForm = (props) => {
 
     const [errors, set_errors] = useState({});
 
-    const validate = () => {
+    // NOTE: full form : validate()
+    // NOTE: form field : validate(fieldname:value)
+    const validate = (prev = values) => {
         // NOTE: Only validate not empty values
         let tmp = {};
-        tmp._id = values._id ? "" : "_id: no puede estar en blanco";
-        tmp.id = values.id ? "" : "id: no puede estar en blanco";
-        tmp.motivo = values.motivo ? "" : "motivo: no puede estar en blanco";
-        tmp.tipo = values.tipo ? "" : "tipo: no puede estar en blanco";
-        tmp.mes = values.mes ? "" : "mes: no puede estar en blanco";
-        tmp.dia = values.dia ? "" : "dia: no puede estar en blanco";
+        if (!prev || "_id" in prev) tmp._id = prev._id ? "" : "_id: no puede estar en blanco";
+        if (!prev || "id" in prev) tmp.id = prev.id ? "" : "id: no puede estar en blanco";
+        if (!prev || "motivo" in prev) tmp.motivo = prev.motivo ? "" : "motivo: no puede estar en blanco";
+        if (!prev || "tipo" in prev) tmp.tipo = prev.tipo ? "" : "tipo: no puede estar en blanco";
+        if (!prev || "mes" in prev) tmp.mes = prev.mes ? "" : "mes: no puede estar en blanco";
+        if (!prev || "dia" in prev) tmp.dia = prev.dia ? "" : "dia: no puede estar en blanco";
 
         console.log("validate PRE tmp:", tmp);
         // set_errors({ ...tmp });
         // console.log("validate POS tmp:", tmp);
         // console.log("validate POS errors:", errors);
-        
-        // const isOk = Object.values(tmp).every(m => !m) // m===""
-        const isOk = Object.values(tmp).every(m => m == "") // m===""
-        console.warn("isOk:", isOk);
-        
-        // tmp.FORM = isOk ? "Ok" : "notOk"
-        tmp.FORM = isOk ? FORM_OK : FORM_ERROR
+
+        // if (prev == values)
+        if (true || prev == values)
+            // const isOk = Object.values(tmp).every(m => !m) // m===""
+            // const 
+            // isOk = Object.values(tmp).every(m => m == "") // m===""
+            tmp.FORM = Object.values(tmp).every(m => m == "") // m===""
+        // console.warn("isOk:", isOk);
+        console.warn("tmp.FORM isOk:", tmp.FORM);
+
+        // // tmp.FORM = isOk ? "Ok" : "notOk"
+        // tmp.FORM = isOk ? FORM_OK : FORM_ERROR
 
         set_errors({ ...tmp });
         console.log("validate POS tmp:", tmp);
@@ -57,15 +64,19 @@ export const FeriadoForm = (props) => {
         console.log("doChange PRE values:", values);
         const { name, value } = ev.target
         console.log("doChange {name,value}:", { name, value });
+        const fielfValue = { [name]: value };
 
         set_values({
-            ...values, [name]: value
+            ...values,
+            // [name]: value
+            ...fielfValue
         });
 
         console.log("doChange POS values:", values);
         // // NOTE: if this form deserves validation on every keystroke!!
         // // NOTE: only handles values pre-change!!
         validate();
+        validate(fielfValue);
 
     }
 
