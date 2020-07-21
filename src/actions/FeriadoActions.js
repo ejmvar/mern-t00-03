@@ -55,11 +55,11 @@ export const List = () => dispatch => {
         )
 }
 
-export const Update = (data, onSuccess) => dispatch => {
+export const Update = (id, data, onSuccess) => dispatch => {
     // ... operations
     // get api request
     data = formatData(data);
-    api.FeriadoApi().Update()
+    api.FeriadoApi().Update(id, data)
         .then(
             resp => {
                 console.log("FeriadoApi.List resp:", resp);
