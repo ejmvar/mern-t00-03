@@ -64,22 +64,22 @@ export const FeriadoForm = (props) => {
         // NOTE: Only validate not empty values
         let tmp = {};
         if (
-            // !prev ||
+            !prev ||
             "_id" in prev) tmp._id = prev._id ? "" : "_id: no puede estar en blanco";
         if (
-            // !prev ||
+            !prev ||
             "id" in prev) tmp.id = prev.id ? "" : "id: no puede estar en blanco";
         if (
-            // !prev ||
+            !prev ||
             "motivo" in prev) tmp.motivo = prev.motivo ? "" : "motivo: no puede estar en blanco";
         if (
-            // !prev ||
+            !prev ||
             "tipo" in prev) tmp.tipo = prev.tipo ? "" : "tipo: no puede estar en blanco";
         if (
-            // !prev ||
+            !prev ||
             "mes" in prev) tmp.mes = prev.mes ? "" : "mes: no puede estar en blanco";
         if (
-            // !prev ||
+            !prev ||
             "dia" in prev) tmp.dia = prev.dia ? "" : "dia: no puede estar en blanco";
         // tmp.FORM = Object.values(tmp).every(m => m == "") // m===""
         const isOk = Object.values(tmp).every(m => m == "") // m===""
