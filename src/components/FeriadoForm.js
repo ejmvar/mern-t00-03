@@ -55,6 +55,7 @@ export const FeriadoForm = (props) => {
             });
         }
     }, [props.currDbRec])
+    // }, [props.currIdx])
 
     // NOTE: full form : validate()
     // NOTE: form field : validate(fieldname:value)
