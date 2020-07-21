@@ -20,7 +20,7 @@ yarn add axios
 ### FeriadosList
 
 As of tutos, "componentDidMount" can be replaced by "useEffect" with no "input" ...
-But:
+But, NOTE ...
 
 * if empty tuple, does not execute effect, so no api call, and no data
 * if no observed param it fires api call forever (seems that "any change" means "forever")

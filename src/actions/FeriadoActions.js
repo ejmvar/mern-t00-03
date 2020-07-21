@@ -79,13 +79,3 @@ export const Update = (id, data, onSuccess) => dispatch => {
         )
 }
 
-
-        // TODO: borrar
-
-        // const mapStateToProps = (state) => ({
-        //     wwwwww
-        // })
-
-        // const mapDispatchToProps = {
-
-        // }

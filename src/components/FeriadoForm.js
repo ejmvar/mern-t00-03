@@ -1,4 +1,7 @@
 import React, { Component, useState } from 'react';
+import { connect } from 'react-redux';
+
+import * as actions from "../actions/FeriadoActions";
 
 
 export const FeriadoForm = (props) => {
@@ -238,3 +241,22 @@ export const FeriadoForm = (props) => {
     )
 }
 
+
+// NOTE: simplified "mapStateToProps"
+const mapStateToProps = state => ({
+    // list is stored at reducer FeriadoReducer
+    // feriadosList: state.FeriadosList.list .feriadosList.list
+    feriadosList: state.FeriadoReducer.list
+})
+
+// NOTE: now i can access:
+// NOTE: this.props.feriadosList
+
+
+// NOTE: map actions to props
+// const mapActionsToProps = {
+//     doListFeriados: actions.List
+// }
+const mapActionsToProps = {
+    doListFeriados: actions.Update
+}
