@@ -184,9 +184,11 @@
 }
 
 .feriado-form-head {
-    border: 5px double greenyellow;
+    border: 5px double lightgray;
     display: flex;
     flex-direction: row;
+    font-weight: 500;
+    justify-content: center;
 }
 
 .feriado-table {

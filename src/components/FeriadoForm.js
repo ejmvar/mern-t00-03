@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react';
+import React, { Component, useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 
 import * as actions from "../actions/FeriadoActions";
@@ -22,6 +22,31 @@ export const FeriadoForm = (props) => {
     const [values, set_values] = useState(values_init);
 
     const [errors, set_errors] = useState({});
+
+    // NOTE: FormList Edit() -> set_currIdx (values)
+    useEffect(
+        () => {
+            console.log("useEffect.currIdx.props:", props);
+            // NOTE: only if empty form : currIdx===0
+            if (props.currIdx != 0) {
+                // set_values({
+                //     ...props.feriadosList.find(x => x.id == props.currIdx)
+                // });
+            }
+        },
+        [props.currIdx]
+    )
+
+    // NOTE: FormList Edit() -> set_currIdx (values)
+    useEffect(() => {
+        console.log("useEffect.currIdx.props:", props);
+        // NOTE: only if empty form : currIdx===0
+        if (props.currIdx != 0) {
+            // set_values({
+            //     ...props.feriadosList.find(x => x.id == props.currIdx)
+            // });
+        }
+    }, [props.currDbRec])
 
     // NOTE: full form : validate()
     // NOTE: form field : validate(fieldname:value)
@@ -106,7 +131,7 @@ export const FeriadoForm = (props) => {
     return (
         <div className="feriado-form">
             <p className="feriado-form-head">
-                FeriadoForm [NOTE: WIP]
+                Feriado detallado zz
             </p>
 
             <form autoComplete="off" noValidate className="feriado-form" onSubmit={doSubmit} >
@@ -208,11 +233,6 @@ export const FeriadoForm = (props) => {
                             }
                         </tr>
                     </tbody>
-                    <tfoot>
-                        <tr>
-
-                        </tr>
-                    </tfoot>
                 </table>
 
                 <div className="feriado__buttons">
@@ -227,18 +247,10 @@ export const FeriadoForm = (props) => {
                     </p>
                 </div>
                 <div className="feriado__buttons">
-
-
-
-
                     <button type="submit" onSubmit={doSubmit} className="feriado__button"> Acepta </button>
                     <button type="reset" className="feriado__button"> Rechaza </button>
                 </div>
-
             </form>
-
-
-
         </div>
     )
 }
@@ -248,7 +260,7 @@ export const FeriadoForm = (props) => {
 const mapStateToProps = state => ({
     // list is stored at reducer FeriadoReducer
     // feriadosList: state.FeriadosList.list .feriadosList.list
-    feriadosList: state.FeriadoReducer.list
+    feriadosList: state.FeriadoReducer().list
 })
 
 // NOTE: now i can access:
@@ -260,7 +272,8 @@ const mapStateToProps = state => ({
 //     doListFeriados: actions.List
 // }
 const mapActionsToProps = {
-    doListFeriados: actions.Update
+    // doListFeriados: actions.Update
+    doUpdateFeriados: actions.Update
     // NOTE: and any other actions to implement on form
 }
 

@@ -50,9 +50,9 @@ export const List = () => dispatch => {
         .catch(err => console.error("FeriadoApi.List:", err)
 
         )
-        .finally(
-            () => console.info("FeriadoApi.List finished:")
-        )
+    // .finally(
+    //     () => console.info("FeriadoApi.List finished:")
+    // )
 }
 
 export const Update = (id, data, onSuccess) => dispatch => {
@@ -65,17 +65,12 @@ export const Update = (id, data, onSuccess) => dispatch => {
                 console.log("FeriadoApi.List resp:", resp);
                 dispatch({
                     type: ACTION_TYPES.UPDATE,
-                    payload: {id,...resp.data} // NOTE: destruct+inmut  {id:id,data:resp.data}
+                    payload: { id, ...data } // NOTE: destruct+inmut  {id:id,data:resp.data}
                 })
                 onSuccess()
             }
-
         )
         .catch(err => console.error("FeriadoApi.Update:", err)
-        )
-        .finally(
-            () => console.info("FeriadoApi.Update finished:")
-
         )
 }
 

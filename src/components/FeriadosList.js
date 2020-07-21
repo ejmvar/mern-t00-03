@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import * as actions from "../actions/FeriadoActions";
 import { FeriadoForm } from './FeriadoForm';
 import { FeriadoShow } from './FeriadoShow';
-import EditIcon from  "@material-ui/icons/Edit";
+import EditIcon from "@material-ui/icons/Edit";
 
 const FeriadosList = (props) => {
     // NOTE: example
@@ -18,25 +18,32 @@ const FeriadosList = (props) => {
     const [hasData, set_hasData] = useState(false);
     const [currIdx, set_currIdx] = useState(undefined);
     const [currDbId, set_currDbId] = useState(undefined);
+    const [currDbRec, set_currDbRec] = useState(undefined);
 
     useEffect(() => {
         // return () => {effect};
+
+        console.log("FeriadosList.useEffect.props:1", props);
         props.doListFeriados();
         console.log("EFFECT: doListFeriados");
-        console.log(props);
-        // }, [x])
+        console.log("FeriadosList.useEffect.props:2", props);
     }
-        // , [] // componentDidMount
         // , [props.x] // componentDidMount
-        // , [props] // componentDidMount
-        , [hasData] // componentDidMount : NOTE: works OK
+        // , [props] // LOOP
+
+        // , [] // ONCE but not loading into props.feriadosList
+        // , [hasData] // componentDidMount : NOTE: works OK
         // , [x] // componentDidMount : NOTE: works OK
+
+        // , [props.list] // ERROR !
+        , [props.doListFeriados] // ERROR !
+        // , [props.feriadosList] // Loop !
     )
 
 
-
     return (
-        <div>
+
+        < div >
             <div className="info-group">
                 {/* Dbg Info */}
                 <div className="info-buttons">
@@ -75,7 +82,7 @@ const FeriadosList = (props) => {
                 </div>
             </div>
             form FeriadosList props: AAAAAAAAAAA
-            <hr />
+            < hr />
             <div className="db-show__area db-data__area">
                 {dbg ? "db-show__area db-data__area" : ""}
                 < br />
@@ -113,24 +120,25 @@ const FeriadosList = (props) => {
                                                 <td>  {r.mes}               </td>
                                                 <td>  {r.dia}               </td>
                                                 <td>  {dbg ? r.__v : ""}    </td>
-                                                <td>  
+                                                <td>
                                                     <button
                                                     >
-                                                    <EditIcon color="primary" 
-                                                    onClick={()=>set_currIdx(r.id)}
-                                                     />
+                                                        <EditIcon color="primary"
+                                                            onClick={
+                                                                () => {
+                                                                    set_currIdx(r.id)
+                                                                }
+                                                            }
+                                                        />
                                                     </button>
-                                                        </td>
+                                                </td>
                                             </tr>
 
                                         )
                                     })
                                 }
-
                             </tbody>
-
                         </table>
-
                     </div>
                 </div>
 
@@ -140,39 +148,29 @@ const FeriadosList = (props) => {
                             {!currIdx ?
                                 "Indique la línea del feriado de interés para ver el detalle en esta área"
                                 :
-                                ("Feriado: " + props.feriadosList[currIdx].motivo)
+                                (props.feriadosList[currIdx].motivo)
                             }</p>
 
-                        <p> db-datum__area-head </p>
-                        <p> db-datum__group for </p>
-                        <p> currDbId: <b>{currDbId}</b> </p>
-                        <p> currIdx: <b>{currIdx}</b> </p>
-
+                        {currIdx ?
+                            <p>
+                                {currDbId} :
+                         {currIdx}
+                            </p>
+                            : ""
+                        }
                     </div>
-                    <div className="db-datum__label">
-                        db-datum__label: Listado Feriados
 
-                      </div>
-                    {currIdx ?
-                        "NOSTRAR!!"
-                        : "naaa"}
                     <div className="db-datum__rows">
-                        db-datum__rows
-
-                        <p> FeriadoForm </p>
-                        <FeriadoForm  {...({currIdx,set_currIdx})}
+                        <FeriadoForm
+                            {...({ currIdx, set_currIdx })}
+                            {...({ currDbRec, set_currDbRec })}
                         />
-
                         <p> FeriadoShow </p>
                         <FeriadoShow />
-
-
                     </div>
                 </div>
-
             </div>
-
-        </div>
+        </div >
     )
 }
 
