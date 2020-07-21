@@ -18,7 +18,7 @@ const FeriadosList = (props) => {
     const [hasData, set_hasData] = useState(false);
     const [currIdx, set_currIdx] = useState(undefined);
     const [currDbId, set_currDbId] = useState(undefined);
-    const [currDbRec, set_currDbRec] = useState(undefined);
+    const [currDbRec, set_currDbRec] = useState({});
 
     useEffect(() => {
         // return () => {effect};

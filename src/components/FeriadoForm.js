@@ -235,17 +235,17 @@ export const FeriadoForm = (props) => {
                     </tbody>
                 </table>
 
-                <div className="feriado__buttons">
+                {/* <div className="feriado__buttons">
                     Errors: {JSON.stringify(errors)}
-                </div>
-                <div className="feriado__buttons">
+                </div> */}
+                {/* <div className="feriado__buttons">
                     <p>
                         Errors: {errors.FORM}
                     </p>
                     <p>
                         NO Errors: {errors.FORM_OK}
                     </p>
-                </div>
+                </div> */}
                 <div className="feriado__buttons">
                     <button type="submit" onSubmit={doSubmit} className="feriado__button"> Acepta </button>
                     <button type="reset" className="feriado__button"> Rechaza </button>
