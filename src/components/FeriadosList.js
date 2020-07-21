@@ -140,6 +140,7 @@ const FeriadosList = (props) => {
                                                             onClick={
                                                                 () => {
                                                                     set_currIdx(r.id);
+                                                                    set_currDbId(r._id);
                                                                     set_currDbRec(r); // NOTE: outside of state
                                                                 }
                                                             }
@@ -178,6 +179,7 @@ const FeriadosList = (props) => {
                         {currDbId ?
                             <FeriadoForm
                                 {...({ currIdx, set_currIdx })}
+                                {...({ currDbId, currDbId })}
                                 {...({ currDbRec, set_currDbRec })}
                             />
                             : ""}
