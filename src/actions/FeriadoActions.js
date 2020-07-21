@@ -58,14 +58,14 @@ export const List = () => dispatch => {
 export const Update = (id, data, onSuccess) => dispatch => {
     // ... operations
     // get api request
-    data = formatData(data);
+    data = formatData(data); // NOTE: (dia,mes) to numbers
     api.FeriadoApi().Update(id, data)
         .then(
             resp => {
                 console.log("FeriadoApi.List resp:", resp);
                 dispatch({
                     type: ACTION_TYPES.UPDATE,
-                    payload: resp.data
+                    payload: {id,...resp.data} // NOTE: destruct+inmut  {id:id,data:resp.data}
                 })
                 onSuccess()
             }
