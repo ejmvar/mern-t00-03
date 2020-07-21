@@ -333,4 +333,7 @@
 
 input {
     font-size: 1.3rem;
+    font-size: .9rem;
+    width: 80%;
+    /* float: left; */
 }

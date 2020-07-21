@@ -163,33 +163,38 @@ export const FeriadoForm = (props) => {
 
     return (
         <div className="feriado-form">
-            <p className="feriado-form-head">
+            <span className="feriado-form-head">
                 Feriado detallado
-            </p>
+            </span>
+            <button onClick={() => set_editing(true)} >
+                Modificar
+            </button>
 
             <form autoComplete="off" noValidate className="feriado-form" onSubmit={doSubmit} >
 
                 <table className="z-feriado-table">
-                    <thead className="z-feriado__head">
-                        <tr>
+                    {(true) ? "" :
+                        <thead className="z-feriado__head">
+                            <tr>
 
-                            <th className="z-feriado__head-label"> Campo </th>
-                            {!editing ? <th className="z-feriado__head-label"> Valor </th>
-                                : <th className="feriado__head-label__get"> Editado </th>
-                            }
-                        </tr>
-                    </thead>
+                                <th className="z-feriado__head-label"> Campo </th>
+                                {!editing ? <th className="z-feriado__head-label"> Valor </th>
+                                    : <th className="feriado__head-label__get"> Editado </th>
+                                }
+                            </tr>
+                        </thead>
+                    }
                     <tbody className="z-feriado-body">
 
                         <tr>
                             <td className="feriado__value-title" > _id </td>
                             {!editing ? <td className="feriado__value-show" > {values._id} {r._id} </td>
                                 : <td className="feriado__value-get" >
-                                    _id: <input type="text"
+                                    <input type="text"
                                         name="_id" value={values._id} onChange={doChange}
                                     >
                                     </input>
-                                     {(errors._id) ?
+                                    {(errors._id) ?
                                         <p className="field-error">    {errors._id}  </p>
                                         : <p className="field-ok"> &nbsp;  </p>}
                                 </td>
@@ -199,11 +204,11 @@ export const FeriadoForm = (props) => {
                             <td className="feriado__value-title" > id </td>
                             {!editing ? <td className="feriado__value-show" > {values.id} {r.id} </td>
                                 : <td className="feriado__value-get" >
-                                    id: <input type="text"
+                                    <input type="text"
                                         name="id" value={values.id} onChange={doChange}
                                     >
                                     </input>
-                                     {(errors.id) ?
+                                    {(errors.id) ?
                                         <p className="field-error">    {errors.id}  </p>
                                         : <p className="field-ok"> &nbsp;  </p>}
                                 </td>
@@ -213,11 +218,11 @@ export const FeriadoForm = (props) => {
                             <td className="feriado__value-title" > motivo </td>
                             {!editing ? <td className="feriado__value-show" > {values.motivo} {r.motivo} </td>
                                 : <td className="feriado__value-get" >
-                                    motivo: <input type="text"
+                                    <input type="text"
                                         name="motivo" value={values.motivo} onChange={doChange}
                                     >
                                     </input>
-                                     {(errors.motivo) ?
+                                    {(errors.motivo) ?
                                         <p className="field-error">    {errors.motivo}  </p>
                                         : <p className="field-ok"> &nbsp;  </p>}
                                 </td>
@@ -227,11 +232,11 @@ export const FeriadoForm = (props) => {
                             <td className="feriado__value-title" > tipo </td>
                             {!editing ? <td className="feriado__value-show" > {values.tipo} {r.tipo} </td>
                                 : <td className="feriado__value-get" >
-                                    tipo: <input type="text"
+                                    <input type="text"
                                         name="tipo" value={values.tipo} onChange={doChange}
                                     >
                                     </input>
-                                     {(errors.tipo) ?
+                                    {(errors.tipo) ?
                                         <p className="field-error">    {errors.tipo}  </p>
                                         : <p className="field-ok"> &nbsp;  </p>}
                                 </td>
@@ -241,11 +246,11 @@ export const FeriadoForm = (props) => {
                             <td className="feriado__value-title" > mes </td>
                             {!editing ? <td className="feriado__value-show" > {values.mes} {r.mes} </td>
                                 : <td className="feriado__value-get" >
-                                    mes: <input type="text"
+                                    <input type="text"
                                         name="mes" value={values.mes} onChange={doChange}
                                     >
                                     </input>
-                                     {(errors.mes) ?
+                                    {(errors.mes) ?
                                         <p className="field-error">    {errors.mes}  </p>
                                         : <p className="field-ok"> &nbsp;  </p>}
                                 </td>
@@ -255,11 +260,11 @@ export const FeriadoForm = (props) => {
                             <td className="feriado__value-title" > dia </td>
                             {!editing ? <td className="feriado__value-show" > {values.dia} {r.dia} </td>
                                 : <td className="feriado__value-get" >
-                                    dia: <input type="text"
+                                    <input type="text"
                                         name="dia" value={values.dia} onChange={doChange}
                                     >
                                     </input>
-                                     {(errors.dia) ?
+                                    {(errors.dia) ?
                                         <p className="field-error">    {errors.dia}  </p>
                                         : <p className="field-ok"> &nbsp;  </p>}
                                 </td>
@@ -281,7 +286,9 @@ export const FeriadoForm = (props) => {
                 </div> */}
                 <div className="feriado__buttons">
                     <button type="submit" onSubmit={doSubmit} className="feriado__button"> Acepta </button>
-                    <button type="reset" className="feriado__button"> Rechaza </button>
+                    <button type="reset" className="feriado__button"
+                        onClick={() => set_editing(false)} >
+                        Rechaza </button>
                 </div>
             </form>
         </div>

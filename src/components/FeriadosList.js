@@ -179,8 +179,8 @@ const FeriadosList = (props) => {
                             {...({ currIdx, set_currIdx })}
                             {...({ currDbRec, set_currDbRec })}
                         />
-                        <p> FeriadoShow </p>
-                        <FeriadoShow />
+                        {/* <p> FeriadoShow </p>
+                        <FeriadoShow /> */}
                     </div>
                 </div>
             </div>
