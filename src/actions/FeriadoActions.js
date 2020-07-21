@@ -50,12 +50,17 @@ export const List = () => dispatch => {
         .catch(err => console.error("FeriadoApi.List:", err)
 
         )
-    // .finally(
-    //     () => console.info("FeriadoApi.List finished:")
-    // )
+        // .finally(
+        //     () => console.info("FeriadoApi.List finished:")
+        // )
 }
 
 export const Update = (id, data, onSuccess) => dispatch => {
+
+
+    // console.log("FeriadoActions.Update id,data:", id, data);
+
+
     // ... operations
     // get api request
     data = formatData(data); // NOTE: (dia,mes) to numbers
@@ -70,7 +75,5 @@ export const Update = (id, data, onSuccess) => dispatch => {
                 onSuccess()
             }
         )
-        .catch(err => console.error("FeriadoApi.Update:", err)
-        )
+        .catch(err => console.error("FeriadoApi.Update:", err))
 }
-

@@ -150,6 +150,14 @@ export const FeriadoForm = (props) => {
             console.log("FeriadoForm.doSubmit FINAL props.currentIdx:", props.currentIdx);
             console.log("FeriadoForm.doSubmit FINAL values:", values);
             // props.Update(id, data, onSuccess)
+
+            console.log("FeriadoForm.doSubmit FINAL props.doUpdateFeriados:", props.doUpdateFeriados);
+            console.log("FeriadoForm.doSubmit FINAL props.Update:", props.Update);
+            console.log("FeriadoForm.doSubmit FINAL actions.Update:", actions.Update);
+            // console.log("FeriadoForm.doSubmit FINAL doUpdateFeriados:", doUpdateFeriados);
+            // console.log("FeriadoForm.doSubmit FINAL Update:", Update);
+            actions.Update(values._id, values, () => { window.alert("Record updated") });
+
         }
     }
 
