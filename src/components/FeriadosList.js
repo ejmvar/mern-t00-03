@@ -116,7 +116,9 @@ const FeriadosList = (props) => {
                                                 <td>  
                                                     <button
                                                     >
-                                                    <EditIcon color="primary" />
+                                                    <EditIcon color="primary" 
+                                                    onClick={()=>set_currIdx(r.id)}
+                                                     />
                                                     </button>
                                                         </td>
                                             </tr>
@@ -158,7 +160,8 @@ const FeriadosList = (props) => {
                         db-datum__rows
 
                         <p> FeriadoForm </p>
-                        <FeriadoForm />
+                        <FeriadoForm  {...({currIdx,set_currIdx})}
+                        />
 
                         <p> FeriadoShow </p>
                         <FeriadoShow />
