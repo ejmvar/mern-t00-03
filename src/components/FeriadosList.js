@@ -50,7 +50,7 @@ const FeriadosList = (props) => {
 
     return (
 
-        < div >
+        <div className="info-desk">
             <div className="info-group">
                 {/* Dbg Info */}
                 <div className="info-buttons">
@@ -88,19 +88,18 @@ const FeriadosList = (props) => {
 
                 </div>
             </div>
-            form FeriadosList props: AAAAAAAAAAA
-            < hr />
             <div className="db-show__area db-data__area">
                 {dbg ? "db-show__area db-data__area" : ""}
-                < br />
                 <div className="db-data__group">
-                    db-data__group
-                    <div className="db-data__label">
-                        db-data__label: Listado Feriados
+
+
+
+                    <div className="feriado-form-head">
+                        Listado Feriados
 
                       </div>
+
                     <div className="db-data__rows">
-                        db-data__rows
                         <table className="db-data__table">
                             <thead>
                                 <tr>
@@ -120,13 +119,8 @@ const FeriadosList = (props) => {
                                         return (
                                             <tr key={i} className="db-data__table-row"
                                                 onClick={() => {
-                                                    set_currIdx(i); set_currDbId(r._id);
-                                                    // }
-                                                    // }
-
-                                                    // onClick={
-                                                    //     () => {
-                                                    //         set_currIdx(r.id);
+                                                    set_currIdx(i);
+                                                    set_currDbId(r._id);
                                                     set_currDbRec(r); // NOTE: outside of state
                                                 }
                                                 }

@@ -1,5 +1,6 @@
 .App {
     text-align: center;
+    justify-content: center;
 }
 
 .App-header {
@@ -30,11 +31,25 @@
     color: #61dafb;
 }
 
+.info-desk {
+    justify-content: center;
+}
+
 .info-group {
     border: 3px double orange;
     display: flex;
     flex-direction: row;
     height: 4rem;
+    /* .db-show__area { */
+    border: 3px double grey;
+    display: flex;
+    flex-direction: row;
+    margin: 10px;
+    /* align-self: center; */
+    width: 90%;
+    justify-content: center;
+    /* height: 7vmax; */
+    /* } */
 }
 
 .info-buttons {
@@ -61,6 +76,7 @@
     border: 3px double blue;
     display: flex;
     flex-direction: column;
+    width: 70%;
 }
 
 .info-data__label {
@@ -81,15 +97,21 @@
 /* .db-data__area { */
 
 .db-show__area {
-    border: 3px double blue;
+    border: 3px double grey;
     display: flex;
     flex-direction: row;
+    margin: 10px;
+    /* align-self: center; */
+    width: 90%;
+    justify-content: center;
+    /* height: 7vmax; */
 }
 
 .db-data__group {
     border: 3px double blue;
     display: flex;
     flex-direction: column;
+    width: 70%;
 }
 
 .db-data__label {
@@ -137,6 +159,7 @@
     border: 3px double lightgray;
     display: flex;
     flex-direction: column;
+    width: 70%;
 }
 
 .db-datum__area-head {
