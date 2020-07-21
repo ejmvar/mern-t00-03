@@ -140,3 +140,21 @@ export const useForm = (initState) => {
 
 }
 ```
+
+## ERRORS
+
+### Controled to uncontrolled INPUTs
+
+``` js
+    // NOTE: FormList Edit() -> set_currIdx (values)
+    useEffect(() => {
+        console.log("FeriadoForm.useEffect.currIdx.props:", props);
+        // NOTE: only if empty form : currIdx===0
+        if (props.currIdx != 0) {
+            set_values({
+                // ...props.feriadosList.find(x => x.id == props.currIdx)
+                ...props.currDbRec // FIXME: controled to uncontrolled INPUTs
+            });
+        }
+    }, [props.currDbRec])
+```
