@@ -225,10 +225,10 @@ export const FeriadoForm = (props) => {
                     </p>
                 </div>
                 <div className="feriado__buttons">
-                    
 
 
-                    
+
+
                     <button type="submit" onSubmit={doSubmit} className="feriado__button"> Acepta </button>
                     <button type="reset" className="feriado__button"> Rechaza </button>
                 </div>
@@ -259,4 +259,7 @@ const mapStateToProps = state => ({
 // }
 const mapActionsToProps = {
     doListFeriados: actions.Update
+    // NOTE: and any other actions to implement on form
 }
+
+export default connect(mapStateToProps, mapActionsToProps)(FeriadoForm);
