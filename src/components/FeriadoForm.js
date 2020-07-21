@@ -63,24 +63,12 @@ export const FeriadoForm = (props) => {
         console.log("validate PRE prev:", prev);
         // NOTE: Only validate not empty values
         let tmp = {};
-        if (
-            !prev ||
-            "_id" in prev) tmp._id = prev._id ? "" : "_id: no puede estar en blanco";
-        if (
-            !prev ||
-            "id" in prev) tmp.id = prev.id ? "" : "id: no puede estar en blanco";
-        if (
-            !prev ||
-            "motivo" in prev) tmp.motivo = prev.motivo ? "" : "motivo: no puede estar en blanco";
-        if (
-            !prev ||
-            "tipo" in prev) tmp.tipo = prev.tipo ? "" : "tipo: no puede estar en blanco";
-        if (
-            !prev ||
-            "mes" in prev) tmp.mes = prev.mes ? "" : "mes: no puede estar en blanco";
-        if (
-            !prev ||
-            "dia" in prev) tmp.dia = prev.dia ? "" : "dia: no puede estar en blanco";
+        if (!prev || "_id" in prev) tmp._id = prev._id ? "" : "_id: no puede estar en blanco";
+        if (!prev || "id" in prev) tmp.id = prev.id ? "" : "id: no puede estar en blanco";
+        if (!prev || "motivo" in prev) tmp.motivo = prev.motivo ? "" : "motivo: no puede estar en blanco";
+        if (!prev || "tipo" in prev) tmp.tipo = prev.tipo ? "" : "tipo: no puede estar en blanco";
+        if (!prev || "mes" in prev) tmp.mes = prev.mes ? "" : "mes: no puede estar en blanco";
+        if (!prev || "dia" in prev) tmp.dia = prev.dia ? "" : "dia: no puede estar en blanco";
         // tmp.FORM = Object.values(tmp).every(m => m == "") // m===""
         const isOk = Object.values(tmp).every(m => m == "") // m===""
         console.warn("tmp.FORM isOk: ??1??", isOk);
