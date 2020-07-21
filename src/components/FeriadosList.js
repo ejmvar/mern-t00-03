@@ -21,6 +21,13 @@ const FeriadosList = (props) => {
     const [currDbRec, set_currDbRec] = useState({});
 
     useEffect(() => {
+        console.log("FeriadosList.useEffect.currDbRec", currDbRec);
+
+    }
+        , [currDbRec]
+    )
+
+    useEffect(() => {
         // return () => {effect};
 
         console.log("FeriadosList.useEffect.props:1", props);
@@ -112,7 +119,19 @@ const FeriadosList = (props) => {
                                     props.feriadosList.map((r, i) => {
                                         return (
                                             <tr key={i} className="db-data__table-row"
-                                                onClick={() => { set_currIdx(i); set_currDbId(r._id); }} >
+                                                onClick={() => {
+                                                    set_currIdx(i); set_currDbId(r._id);
+                                                    // }
+                                                    // }
+
+                                                    // onClick={
+                                                    //     () => {
+                                                    //         set_currIdx(r.id);
+                                                    set_currDbRec(r); // NOTE: outside of state
+                                                }
+                                                }
+
+                                            >
                                                 <td>  {dbg ? r._id : ""}      </td>
                                                 <td>  {r.id}                </td>
                                                 <td>  {r.motivo}            </td>
@@ -126,7 +145,8 @@ const FeriadosList = (props) => {
                                                         <EditIcon color="primary"
                                                             onClick={
                                                                 () => {
-                                                                    set_currIdx(r.id)
+                                                                    set_currIdx(r.id);
+                                                                    set_currDbRec(r); // NOTE: outside of state
                                                                 }
                                                             }
                                                         />

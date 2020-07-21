@@ -39,12 +39,20 @@ export const FeriadoForm = (props) => {
 
     // NOTE: FormList Edit() -> set_currIdx (values)
     useEffect(() => {
-        console.log("useEffect.currIdx.props:", props);
+        console.log("FeriadoForm.useEffect.currDbRec.props  for currDbRec:", props);
         // NOTE: only if empty form : currIdx===0
         if (props.currIdx != 0) {
-            // set_values({
-            //     ...props.feriadosList.find(x => x.id == props.currIdx)
-            // });
+            set_values({
+                // ...props.feriadosList.find(x => x.id == props.currIdx)
+
+
+                    ...props.currDbRec
+                    // ...values,
+                    // [name]: value
+                    // ...fielfValue
+                
+                
+            });
         }
     }, [props.currDbRec])
 
