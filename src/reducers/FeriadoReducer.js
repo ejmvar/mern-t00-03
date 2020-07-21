@@ -1,5 +1,5 @@
 // import { ACTION_TYPES } from "../actions/FeriadoActions";
-const { ACTION_TYPES } = require("../actions/FeriadoActions");
+const { ACTION_TYPES, Update } = require("../actions/FeriadoActions");
 
 
 const initState = {
@@ -13,6 +13,13 @@ export const FeriadoReducer = (state = initState, action) => {
             return {
                 ...state,
                 list: [...action.payload]
+            }
+        case ACTION_TYPES.UPDATE:
+            console.log("FeriadoReducer.Update action.type:", action.type);
+
+            return {
+                ...state,
+                list: state.list.map(x => x.id == action.payload.id ? action.payload : x) // NOTE: {id,data)} into list
             }
 
 
