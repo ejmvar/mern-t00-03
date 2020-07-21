@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import * as actions from "../actions/FeriadoActions";
 import { FeriadoForm } from './FeriadoForm';
 import { FeriadoShow } from './FeriadoShow';
-
+import EditIcon from  "@material-ui/icons/Edit";
 
 const FeriadosList = (props) => {
     // NOTE: example
@@ -97,6 +97,7 @@ const FeriadosList = (props) => {
                                     <th> mes </th>
                                     <th> dia </th>
                                     <td> {dbg ? "__v" : ""} </td>
+                                    <td>  EDIT    </td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -112,6 +113,12 @@ const FeriadosList = (props) => {
                                                 <td>  {r.mes}               </td>
                                                 <td>  {r.dia}               </td>
                                                 <td>  {dbg ? r.__v : ""}    </td>
+                                                <td>  
+                                                    <button
+                                                    >
+                                                    <EditIcon color="primary" />
+                                                    </button>
+                                                        </td>
                                             </tr>
 
                                         )

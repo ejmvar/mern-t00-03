@@ -14,15 +14,11 @@ function App() {
     <Provider store={store}>
 
       <div className="zApp">
-        <header className="zApp-header">
-
+        {/* <header className="zApp-header">
           <FeriadoForm></FeriadoForm>
-
-
-        </header>
+        </header> */}
         <div className="zApp-body">
           <FeriadosList></FeriadosList>
-
         </div>
       </div>
 

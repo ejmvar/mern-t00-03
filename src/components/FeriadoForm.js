@@ -99,6 +99,8 @@ export const FeriadoForm = (props) => {
         // console.log("doSubmit POS validate():", validate() );
         // NOTE: if this form only deserves validation on submit!!
         if (!validate()) { window.alert(FORM_ERROR); }
+        // NOTE: {props.Update(id, data, onSuccess)
+        else{props.Update(id, data, onSuccess)}
     }
 
     return (

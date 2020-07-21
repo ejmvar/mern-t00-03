@@ -11,9 +11,19 @@ CODE .
 yarn
 yarn start
 yarn add redux react-redux redux-thunk
-yarn add axios 
+yarn add axios
 
+# Almost not used
+yarn add @material-ui/core @material-ui/icons
 ```
+
+## Styling
+
+In order to avoid specific styling,
+I worked this demo as bare html/css (no Bootstrap, Material, etc)
+
+Just to include an icon, used materias EditIcon
+
 
 ## Failures
 
