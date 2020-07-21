@@ -175,10 +175,12 @@ const FeriadosList = (props) => {
                     </div>
 
                     <div className="db-datum__rows">
-                        <FeriadoForm
-                            {...({ currIdx, set_currIdx })}
-                            {...({ currDbRec, set_currDbRec })}
-                        />
+                        {currDbId ?
+                            <FeriadoForm
+                                {...({ currIdx, set_currIdx })}
+                                {...({ currDbRec, set_currDbRec })}
+                            />
+                            : ""}
                         {/* <p> FeriadoShow </p>
                         <FeriadoShow /> */}
                     </div>

@@ -9,7 +9,7 @@ export const FeriadoForm = (props) => {
     const FORM_ERROR = "Debe corregir los errores o RECHAZAR los cambios";
     const FORM_OK = "Puede ACEPTAR los cambios";
     const [r, set_r] = useState(0);
-    const [editing, set_editing] = useState(true);
+    const [editing, set_editing] = useState(false);
 
     const values_init = {
         _id: "",
@@ -166,6 +166,7 @@ export const FeriadoForm = (props) => {
             <span className="feriado-form-head">
                 Feriado detallado
             </span>
+            
             <button onClick={() => set_editing(true)} >
                 Modificar
             </button>
@@ -276,20 +277,15 @@ export const FeriadoForm = (props) => {
                 {/* <div className="feriado__buttons">
                     Errors: {JSON.stringify(errors)}
                 </div> */}
-                {/* <div className="feriado__buttons">
-                    <p>
-                        Errors: {errors.FORM}
-                    </p>
-                    <p>
-                        NO Errors: {errors.FORM_OK}
-                    </p>
-                </div> */}
-                <div className="feriado__buttons">
-                    <button type="submit" onSubmit={doSubmit} className="feriado__button"> Acepta </button>
-                    <button type="reset" className="feriado__button"
-                        onClick={() => set_editing(false)} >
-                        Rechaza </button>
-                </div>
+
+                {editing ?
+                    <div className="feriado__buttons">
+                        <button type="submit" onSubmit={doSubmit} className="feriado__button"> Acepta </button>
+                        <button type="reset" className="feriado__button"
+                            onClick={() => set_editing(false)} >
+                            Rechaza </button>
+                    </div>
+                    : ""}
             </form>
         </div>
     )
