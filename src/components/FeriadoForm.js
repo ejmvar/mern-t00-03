@@ -46,12 +46,12 @@ export const FeriadoForm = (props) => {
                 // ...props.feriadosList.find(x => x.id == props.currIdx)
 
 
-                    ...props.currDbRec
-                    // ...values,
-                    // [name]: value
-                    // ...fielfValue
-                
-                
+                ...props.currDbRec
+                // ...values,
+                // [name]: value
+                // ...fielfValue
+
+
             });
         }
     }, [props.currDbRec])
@@ -60,38 +60,58 @@ export const FeriadoForm = (props) => {
     // NOTE: full form : validate()
     // NOTE: form field : validate(fieldname:value)
     const validate = (prev = values) => {
+        console.log("validate PRE prev:", prev);
         // NOTE: Only validate not empty values
         let tmp = {};
-        if (!prev || "_id" in prev) tmp._id = prev._id ? "" : "_id: no puede estar en blanco";
-        if (!prev || "id" in prev) tmp.id = prev.id ? "" : "id: no puede estar en blanco";
-        if (!prev || "motivo" in prev) tmp.motivo = prev.motivo ? "" : "motivo: no puede estar en blanco";
-        if (!prev || "tipo" in prev) tmp.tipo = prev.tipo ? "" : "tipo: no puede estar en blanco";
-        if (!prev || "mes" in prev) tmp.mes = prev.mes ? "" : "mes: no puede estar en blanco";
-        if (!prev || "dia" in prev) tmp.dia = prev.dia ? "" : "dia: no puede estar en blanco";
+        if (
+            // !prev ||
+            "_id" in prev) tmp._id = prev._id ? "" : "_id: no puede estar en blanco";
+        if (
+            // !prev ||
+            "id" in prev) tmp.id = prev.id ? "" : "id: no puede estar en blanco";
+        if (
+            // !prev ||
+            "motivo" in prev) tmp.motivo = prev.motivo ? "" : "motivo: no puede estar en blanco";
+        if (
+            // !prev ||
+            "tipo" in prev) tmp.tipo = prev.tipo ? "" : "tipo: no puede estar en blanco";
+        if (
+            // !prev ||
+            "mes" in prev) tmp.mes = prev.mes ? "" : "mes: no puede estar en blanco";
+        if (
+            // !prev ||
+            "dia" in prev) tmp.dia = prev.dia ? "" : "dia: no puede estar en blanco";
+        // tmp.FORM = Object.values(tmp).every(m => m == "") // m===""
+        const isOk = Object.values(tmp).every(m => m == "") // m===""
+        console.warn("tmp.FORM isOk: ??1??", isOk);
 
         console.log("validate PRE tmp:", tmp);
+        set_errors({ ...tmp });
+
+        return isOk;
+
+        // // set_errors({ ...tmp });
+        // // console.log("validate POS tmp:", tmp);
+        // // console.log("validate POS errors:", errors);
+
+        // if (prev == values)
+        //     // if (true || prev == values)
+        //     // const isOk = Object.values(tmp).every(m => !m) // m===""
+        //     // const 
+        //     // isOk = Object.values(tmp).every(m => m == "") // m===""
+        //     tmp.FORM = Object.values(tmp).every(m => m == "") // m===""
+        // // console.warn("isOk:", isOk);
+        // console.warn("tmp.FORM isOk:", tmp.FORM);
+
+        // // // tmp.FORM = isOk ? "Ok" : "notOk"
+        // // tmp.FORM = isOk ? FORM_OK : FORM_ERROR
+
         // set_errors({ ...tmp });
         // console.log("validate POS tmp:", tmp);
         // console.log("validate POS errors:", errors);
 
-        // if (prev == values)
-        if (true || prev == values)
-            // const isOk = Object.values(tmp).every(m => !m) // m===""
-            // const 
-            // isOk = Object.values(tmp).every(m => m == "") // m===""
-            tmp.FORM = Object.values(tmp).every(m => m == "") // m===""
-        // console.warn("isOk:", isOk);
-        console.warn("tmp.FORM isOk:", tmp.FORM);
-
-        // // tmp.FORM = isOk ? "Ok" : "notOk"
-        // tmp.FORM = isOk ? FORM_OK : FORM_ERROR
-
-        set_errors({ ...tmp });
-        console.log("validate POS tmp:", tmp);
-        console.log("validate POS errors:", errors);
-
-        console.log("validate FRM tmp:", tmp.FORM);
-        return Object.values(tmp).every(m => !m) // m===""
+        // console.log("validate FRM tmp:", tmp.FORM);
+        // return Object.values(tmp).every(m => !m) // m===""
     }
 
 
@@ -135,6 +155,14 @@ export const FeriadoForm = (props) => {
         if (!validate()) { window.alert(FORM_ERROR); }
         // NOTE: {props.Update(id, data, onSuccess)
         // else{props.Update(id, data, onSuccess)}
+        else {
+            console.log("FeriadoForm.doSubmit FINAL values:", values);
+            console.log("FeriadoForm.doSubmit FINAL props:", props);
+            // console.log("FeriadoForm.doSubmit FINAL id:", id);
+            console.log("FeriadoForm.doSubmit FINAL props.currentIdx:", props.currentIdx);
+            console.log("FeriadoForm.doSubmit FINAL values:", values);
+            // props.Update(id, data, onSuccess)
+        }
     }
 
     return (
