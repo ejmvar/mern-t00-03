@@ -39,9 +39,19 @@ const FeriadosList = ({ classes, ...props }) => {
             // export const Update = (id, data, onSuccess) => dispatch => {
             props.doUpdtFeriados(currDbId, currDbRec,
                 () => {
+
+                    // const r = props.feriadosList.find(x => {
+                    //     console.log("doSubmit x._id vs :", x._id == currDbId);
+                    //     // if (x._id == currDbId){
+                    //     //     sercur
+                    //     // }
+                    //     return (x._id == currDbId);
+                    // });
+                    // console.log("doSubmit r:", r);
                     window.alert("Update Done!");
                 }
-            )
+            );
+            // props.doUpdtFeriados();
 
 
             // --
@@ -58,7 +68,7 @@ const FeriadosList = ({ classes, ...props }) => {
     )
 
     useEffect(() => {
-        console.log("FeriadosList.useEffect.currDbRec", currDbRec);
+        console.log("FeriadosList.useEffect.currDbRec doSubmit", currDbRec);
 
     }
         , [currDbRec]
