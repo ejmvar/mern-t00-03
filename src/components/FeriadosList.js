@@ -26,6 +26,38 @@ const FeriadosList = ({ classes, ...props }) => {
 
 
     useEffect(() => {
+        console.log("FeriadosList.useEffect doSubmit saveMe", saveMe);
+        if (saveMe) {
+            console.log("FeriadosList.useEffect doSubmit Doing saveMe", saveMe);
+
+            console.log("FeriadosList.useEffect doSubmit Doing currDbId", currDbId);
+            console.log("FeriadosList.useEffect doSubmit Doing currDbRec", currDbRec);
+            console.log("FeriadosList.useEffect doSubmit Doing props", props);
+            // upListFeriados (id, data, onSuccess) 
+
+            // --
+            // export const Update = (id, data, onSuccess) => dispatch => {
+            props.doUpdtFeriados(currDbId, currDbRec,
+                () => {
+                    window.alert("Update Done!");
+                }
+            )
+
+
+            // --
+
+            console.log("FeriadosList.useEffect doSubmit Done saveMe", saveMe);
+
+            console.log("FeriadosList.useEffect doSubmit Resetting saveMe", saveMe);
+            set_saveMe(0);
+            console.log("FeriadosList.useEffect doSubmit ResetDone saveMe", saveMe);
+        }
+
+    }
+        , [saveMe]
+    )
+
+    useEffect(() => {
         console.log("FeriadosList.useEffect.currDbRec", currDbRec);
 
     }
@@ -190,6 +222,9 @@ const FeriadosList = ({ classes, ...props }) => {
                                 {...({ currDbId, set_currDbId })}
                                 {...({ currDbRec, set_currDbRec })}
                                 {...({ editMe, set_editMe })}
+                                {...({ saveMe, set_saveMe })}
+
+
                             />
                             : ""}
                         {/*
@@ -225,7 +260,8 @@ const mapStateToProps = state => ({
 
 // NOTE: map actions to props
 const mapActionsToProps = {
-    doListFeriados: actions.List
+    doListFeriados: actions.List,
+    doUpdtFeriados: actions.Update,
 }
 
 export default connect(mapStateToProps, mapActionsToProps)(FeriadosList);

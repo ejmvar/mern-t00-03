@@ -90,7 +90,7 @@ export const FeriadoForm = ({ classes, ...props }) => {
         if (!prev || "dia" in prev) tmp.dia = prev.dia ? "" : "dia: no puede estar en blanco";
         // tmp.FORM = Object.values(tmp).every(m => m == "") // m===""
         const isOk = Object.values(tmp).every(m => m == "") // m===""
-        console.warn("tmp.FORM isOk: ??1??", isOk);
+        console.warn("FF tmp.FORM isOk: ??1??", isOk);
 
         console.log("validate PRE tmp:", tmp);
         set_errors({ ...tmp });
@@ -108,7 +108,7 @@ export const FeriadoForm = ({ classes, ...props }) => {
         //     // isOk = Object.values(tmp).every(m => m == "") // m===""
         //     tmp.FORM = Object.values(tmp).every(m => m == "") // m===""
         // // console.warn("isOk:", isOk);
-        // console.warn("tmp.FORM isOk:", tmp.FORM);
+        // console.warn("FF tmp.FORM isOk:", tmp.FORM);
 
         // // // tmp.FORM = isOk ? "Ok" : "notOk"
         // // tmp.FORM = isOk ? FORM_OK : FORM_ERROR
@@ -148,8 +148,8 @@ export const FeriadoForm = ({ classes, ...props }) => {
     const doSubmit = ev => {
         ev.preventDefault();
 
-        console.log("doSubmit ev:", ev);
-        console.log("doSubmit PRE values:", values);
+        // console.log("FeriadoForm.doSubmit ev:", ev);
+        console.log("FeriadoForm.doSubmit PRE values:", values);
         // const { name, value } = ev.target
         // console.log("doSubmit {name,value}:", { name, value });
         // set_values({
@@ -159,24 +159,37 @@ export const FeriadoForm = ({ classes, ...props }) => {
         console.log("doSubmit POS values:", values);
         // console.log("doSubmit POS validate():", validate() );
         // NOTE: if this form only deserves validation on submit!!
-        if (!validate()) { window.alert(FORM_ERROR); }
+        if (!validate()) {
+            console.log("FeriadoForm.doSubmit !v props:", props);
+            console.log("FeriadoForm.doSubmit !v FORM_ERROR:", FORM_ERROR);
+            window.alert(FORM_ERROR);
+        }
         // NOTE: {props.Update(id, data, onSuccess)
         // else{props.Update(id, data, onSuccess)}
         else {
 
-            console.log("FeriadoForm.doSubmit FINAL props:", props);
-            console.log("FeriadoForm.doSubmit FINAL props.doUpdateFeriados:", props.doUpdateFeriados);
+            console.log("FeriadoForm.doSubmit !! props:", props);
+            // console.log("FeriadoForm.doSubmit !! FORM_ERROR:", FORM_ERROR);
+            console.log("FeriadoForm.doSubmit !! props.doUpdateFeriados:", props.doUpdateFeriados);
 
-            // console.log("FeriadoForm.doSubmit FINAL values:", values);
-            // // console.log("FeriadoForm.doSubmit FINAL id:", id);
-            // console.log("FeriadoForm.doSubmit FINAL props.currentIdx:", props.currentIdx);
-            // console.log("FeriadoForm.doSubmit FINAL values:", values);
+            props.set_saveMe(props.currDbId);
+
+            props.set_currDbRec(  values );
+
+            // props.set_saveMe({id:props.currDbId});
+            // props.set_saveMe({id:props.currDbId,values:{...values}});
+
+
+            // console.log("FeriadoForm.doSubmit !! values:", values);
+            // // console.log("FeriadoForm.doSubmit !! id:", id);
+            // console.log("FeriadoForm.doSubmit !! props.currentIdx:", props.currentIdx);
+            // console.log("FeriadoForm.doSubmit !! values:", values);
             // // props.Update(id, data, onSuccess)
 
-            // console.log("FeriadoForm.doSubmit FINAL props.Update:", props.Update);
-            // console.log("FeriadoForm.doSubmit FINAL actions.Update:", actions.Update);
-            // // console.log("FeriadoForm.doSubmit FINAL doUpdateFeriados:", doUpdateFeriados);
-            // // console.log("FeriadoForm.doSubmit FINAL Update:", Update);
+            // console.log("FeriadoForm.doSubmit !! props.Update:", props.Update);
+            // console.log("FeriadoForm.doSubmit !! actions.Update:", actions.Update);
+            // // console.log("FeriadoForm.doSubmit !! doUpdateFeriados:", doUpdateFeriados);
+            // // console.log("FeriadoForm.doSubmit !! Update:", Update);
             // actions.Update(values._id, values, () => { window.alert("Record updated") });
 
         }
@@ -187,6 +200,7 @@ export const FeriadoForm = ({ classes, ...props }) => {
             <div>
                 Listado Feriados
              <p> (props.editMe: {props.editMe}) === {props.editMe ? props.editMe : "-"} </p>
+                <p> (props.saveMe: {props.saveMe}) === {props.saveMe ? props.saveMe : "-"} </p>
 
                 <p>
                     PROPS :
@@ -308,6 +322,7 @@ export const FeriadoForm = ({ classes, ...props }) => {
                 {props.editMe ?
                     <div className="feriado__buttons">
                         <button type="submit" onSubmit={doSubmit} className="feriado__button"> Acepta </button>
+
                         <button type="reset" className="feriado__button"
                             // onClick={() => set_editing(false)}
                             // onClick={() => set_values(values_init)}
@@ -332,9 +347,10 @@ export const FeriadoForm = ({ classes, ...props }) => {
 
 // NOTE: simplified "mapStateToProps"
 const mapStateToProps = state => ({
-    // list is stored at reducer FeriadoReducer
-    // feriadosList: state.FeriadosList.list .feriadosList.list
-    feriadosList: state.FeriadoReducer().list
+    // // list is stored at reducer FeriadoReducer
+    // // feriadosList: state.FeriadosList.list .feriadosList.list
+    // feriadosList: state.FeriadoReducer().list
+    feriadosList: state.FeriadoReducer.list
 })
 
 // NOTE: now i can access:
@@ -346,9 +362,10 @@ const mapStateToProps = state => ({
 //     doListFeriados: actions.List
 // }
 const mapActionsToProps = {
-    doListFeriados: actions.Update,
-    doUpdateFeriados: actions.Update,
+    // doListFeriados: actions.List,
+    doUpdtFeriados: actions.Update,
     // NOTE: and any other actions to implement on form
 }
 
 export default connect(mapStateToProps, mapActionsToProps)(FeriadoForm);
+

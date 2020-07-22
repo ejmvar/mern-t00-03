@@ -44,7 +44,7 @@ export const FeriadoShow = (props) => {
             // isOk = Object.values(tmp).every(m => m == "") // m===""
             tmp.FORM = Object.values(tmp).every(m => m == "") // m===""
         // console.warn("isOk:", isOk);
-        console.warn("tmp.FORM isOk:", tmp.FORM);
+        console.warn("FS tmp.FORM isOk:", tmp.FORM);
 
         // // tmp.FORM = isOk ? "Ok" : "notOk"
         // tmp.FORM = isOk ? FORM_OK : FORM_ERROR
