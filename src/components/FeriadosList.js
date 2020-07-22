@@ -8,7 +8,8 @@ import { FeriadoForm } from './FeriadoForm';
 // import { FeriadoShow } from './FeriadoShow'; // STUB - test if used
 import EditIcon from "@material-ui/icons/Edit";
 
-const FeriadosList = (props) => {
+// const FeriadosList = (props) => {
+const FeriadosList =  ({ classes, ...props }) => {
     // NOTE: example
     // const [x, setX] = useState(0);
     // setX(5);

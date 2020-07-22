@@ -4,7 +4,8 @@ import { connect } from 'react-redux';
 import * as actions from "../actions/FeriadoActions";
 
 
-export const FeriadoForm = (props) => { 
+// export const FeriadoForm = (props) => { 
+export const FeriadoForm =  ({ classes, ...props }) => { 
 // export const FeriadoForm = (...props) => { // NOTE: must be immutable
 
     const FORM_ERROR = "Debe corregir los errores o RECHAZAR los cambios";
