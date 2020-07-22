@@ -108,6 +108,7 @@
 }
 
 .db-data__group {
+    flex: 2;
     border: 3px double blue;
     display: flex;
     flex-direction: column;
@@ -157,22 +158,13 @@
 
 .db-datum__group {
     border: 3px double lightgray;
+    flex: 1;
     display: flex;
     flex-direction: column;
     width: 70%;
 }
 
 .db-datum__area-head {
-    /* border: 3px double orange;
-    display: flex;
-    flex-direction: row;
-    font-weight: bolder;
-    justify-content: center;
-    justify-content: space-evenly;
-    justify-content: space-between;
-    justify-content: space-around;
-    width: fit-content; */
-    ;
     border: 5px double lightgray;
     display: flex;
     flex-direction: row;

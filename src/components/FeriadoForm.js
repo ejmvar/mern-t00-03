@@ -4,7 +4,8 @@ import { connect } from 'react-redux';
 import * as actions from "../actions/FeriadoActions";
 
 
-export const FeriadoForm = (props) => {
+export const FeriadoForm = (props) => { 
+// export const FeriadoForm = (...props) => { // NOTE: must be immutable
 
     const FORM_ERROR = "Debe corregir los errores o RECHAZAR los cambios";
     const FORM_OK = "Puede ACEPTAR los cambios";
@@ -24,7 +25,11 @@ export const FeriadoForm = (props) => {
 
     useEffect(
         () => {
-            console.warn("FeriadoForm.useEffect.currDbId",props.currDbId);
+            console.warn("FeriadoForm.useEffect.currDbId:",props.currDbId);
+            console.warn("FeriadoForm.useEffect.currDbId: currDbRec",props.currDbRec);
+            console.warn("FeriadoForm.useEffect.currDbId: feriadosList",props.feriadosList);
+            console.warn("FeriadoForm.useEffect.currDbId: props",props);
+            // props.feriadosList
         }
         , [props.currDbId]
     )
@@ -332,8 +337,8 @@ const mapStateToProps = state => ({
 //     doListFeriados: actions.List
 // }
 const mapActionsToProps = {
-    // doListFeriados: actions.Update
-    doUpdateFeriados: actions.Update
+    doListFeriados: actions.Update,
+    doUpdateFeriados: actions.Update,
     // NOTE: and any other actions to implement on form
 }
 

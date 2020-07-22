@@ -21,6 +21,7 @@ const FeriadosList = (props) => {
     const [currDbRec, set_currDbRec] = useState({});
 
     const [editMe, set_editMe] = useState(false);
+    const [saveMe, set_saveMe] = useState(false);
 
 
     useEffect(() => {
@@ -123,7 +124,7 @@ const FeriadosList = (props) => {
                                                 onClick={() => {
                                                     set_currIdx(i);
                                                     set_currDbId(r._id);
-                                                    set_currDbRec(r); // NOTE: outside of state
+                                                    set_currDbRec(r); // NOTE: outside of state ??
                                                 }
                                                 }
                                             >
