@@ -4,8 +4,8 @@ import { connect } from 'react-redux';
 import * as actions from "../actions/FeriadoActions";
 
 // export const FeriadoForm = ({ classes, ...props }) => {
-    // export const FeriadoForm = (...props) => { // NOTE: must be immutable
-    export const FeriadoForm = ({...props}) => { // NOTE: must be immutable
+// export const FeriadoForm = (...props) => { // NOTE: must be immutable
+export const FeriadoForm = ({ ...props }) => { // NOTE: must be immutable
 
     const FORM_ERROR = "Debe corregir los errores o RECHAZAR los cambios";
     const FORM_OK = "Puede ACEPTAR los cambios";
@@ -67,87 +67,44 @@ import * as actions from "../actions/FeriadoActions";
         if (!prev || "tipo" in prev) tmp.tipo = prev.tipo ? "" : "tipo: no puede estar en blanco";
         if (!prev || "mes" in prev) tmp.mes = prev.mes ? "" : "mes: no puede estar en blanco";
         if (!prev || "dia" in prev) tmp.dia = prev.dia ? "" : "dia: no puede estar en blanco";
-        // tmp.FORM = Object.values(tmp).every(m => m == "") // m===""
-        const isOk = Object.values(tmp).every(m => m == "") // m===""
-        console.warn("FF tmp.FORM isOk: ??1??", isOk);
 
-        console.log("validate PRE tmp:", tmp);
+        const isOk = Object.values(tmp).every(m => m == "") // m===""
         set_errors({ ...tmp });
 
         return isOk;
-
-        // // set_errors({ ...tmp });
-        // // console.log("validate POS tmp:", tmp);
-        // // console.log("validate POS errors:", errors);
-
-        // if (prev == values)
-        //     // if (true || prev == values)
-        //     // const isOk = Object.values(tmp).every(m => !m) // m===""
-        //     // const 
-        //     // isOk = Object.values(tmp).every(m => m == "") // m===""
-        //     tmp.FORM = Object.values(tmp).every(m => m == "") // m===""
-        // // console.warn("isOk:", isOk);
-        // console.warn("FF tmp.FORM isOk:", tmp.FORM);
-
-        // // // tmp.FORM = isOk ? "Ok" : "notOk"
-        // // tmp.FORM = isOk ? FORM_OK : FORM_ERROR
-
-        // set_errors({ ...tmp });
-        // console.log("validate POS tmp:", tmp);
-        // console.log("validate POS errors:", errors);
-
-        // console.log("validate FRM tmp:", tmp.FORM);
-        // return Object.values(tmp).every(m => !m) // m===""
     }
 
 
     // NOTE: can extract this for other forms as "useForm"
     // const {values, values_init, doChange} = useForm(values_init)
     const doChange = ev => {
-        console.log("doChange ev:", ev);
-        console.log("doChange PRE values:", values);
         const { name, value } = ev.target
-        console.log("doChange {name,value}:", { name, value });
         const fielfValue = { [name]: value };
 
         set_values({
             ...values,
-            // [name]: value
             ...fielfValue
         });
 
-        console.log("doChange POS values:", values);
         // // NOTE: if this form deserves validation on every keystroke!!
-        // // NOTE: only handles values pre-change!!
         validate();
         validate(fielfValue);
-
     }
 
     const doSubmit = ev => {
         ev.preventDefault();
 
-        console.log("FeriadoForm.doSubmit PRE values:", values);
-
-        console.log("doSubmit POS values:", values);
         // NOTE: if this form only deserves validation on submit!!
         if (!validate()) {
-            console.log("FeriadoForm.doSubmit !v props:", props);
-            console.log("FeriadoForm.doSubmit !v FORM_ERROR:", FORM_ERROR);
             window.alert(FORM_ERROR);
         }
         else {
-            console.log("FeriadoForm.doSubmit !! props:", props);
-            console.log("FeriadoForm.doSubmit !! props.doUpdateFeriados:", props.doUpdateFeriados);
-
             props.set_saveMe(props.currDbId);
-
             props.set_currDbRec(values);
 
             const onSuccess = () => {
                 // resetForm()
-                // addToast("Submitted successfully", { appearance: 'success' })
-                alert("Submitted successfully", { appearance: 'success' });
+                alert("FIXME: Guardado debe actualizar la lista!!", { appearance: 'success' });
             }
             console.log("FeriadoForm.doSubmit !! props.doUpdateFeriados:", props.doUpdateFeriados);
             // FIXME: !?!? props.doUpdateFeriados(props.currentId, values, onSuccess);
