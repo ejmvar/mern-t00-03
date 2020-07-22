@@ -114,28 +114,14 @@ export const FeriadoForm = ({ ...props }) => { // NOTE: must be immutable
 
     return (
         <div className="feriado-form">
-            <div>
-                Listado Feriados
-             <p> (props.editMe: {props.editMe}) === {props.editMe ? props.editMe : "-"} </p>
-                <p> (props.saveMe: {props.saveMe}) === {props.saveMe ? props.saveMe : "-"} </p>
-                <p> (props.dbg: {props.dbg}) === {props.dbg ? props.dbg : "-"} </p>
-
-                <p> PROPS : {JSON.stringify(props)} </p>
-
-                <p> VALUES : {JSON.stringify(values)} </p>
-
-            </div>
             <span className="feriado-form-head">
                 Feriado detallado
             </span>
-
             <form autoComplete="off" noValidate className="feriado-form" onSubmit={doSubmit} >
-
                 <table className="feriado-table">
                     {(true) ? "" :
                         <thead className="feriado__head">
                             <tr>
-
                                 <th className="z-feriado__head-label"> Campo </th>
                                 {!props.editMe ? <th className="z-feriado__head-label"> Valor </th>
                                     : <th className="feriado__head-label__get"> Editado </th>
@@ -144,7 +130,6 @@ export const FeriadoForm = ({ ...props }) => { // NOTE: must be immutable
                         </thead>
                     }
                     <tbody className="z-feriado-body">
-
                         <tr>
                             <td className="feriado__value-title" > _id </td>
                             {!props.editMe ? <td className="feriado__value-show" > {values._id} {r._id} </td>
@@ -232,25 +217,15 @@ export const FeriadoForm = ({ ...props }) => { // NOTE: must be immutable
                     </tbody>
                 </table>
 
-                {/* <div className="feriado__buttons">
-                    Errors: {JSON.stringify(errors)}
-                </div> */}
-
                 {props.editMe ?
                     <div className="feriado__buttons">
                         <button type="submit" onSubmit={doSubmit} className="feriado__button"> Acepta </button>
-
                         <button type="reset" className="feriado__button"
-                            // onClick={() => set_editing(false)}
-                            // onClick={() => set_values(values_init)}
-
-                            // onClick={() => props.seteditme set_values(values_init)}
                             onClick={() => {
                                 props.set_editMe("");
                                 props.set_editMe(false);
                                 set_values(values_init);
                                 props.set_currDbId(undefined);
-                                // set_values(values_init);
                             }}
                         >
                             Rechaza </button>
@@ -261,28 +236,16 @@ export const FeriadoForm = ({ ...props }) => { // NOTE: must be immutable
     )
 }
 
-
 // NOTE: simplified "mapStateToProps"
 const mapStateToProps = state => ({
     // // list is stored at reducer FeriadoReducer
     // // feriadosList: state.FeriadosList.list .feriadosList.list
-    // feriadosList: state.FeriadoReducer().list
     feriadosList: state.FeriadoReducer.list
 })
 
-// NOTE: now i can access:
-// NOTE: this.props.feriadosList
-
-
-// NOTE: map actions to props
-// const mapActionsToProps = {
-//     doListFeriados: actions.List
-// }
 const mapActionsToProps = {
-    // doListFeriados: actions.List,
     doUpdateFeriados: actions.Update,
     // NOTE: and any other actions to implement on form
 }
 
 export default connect(mapStateToProps, mapActionsToProps)(FeriadoForm);
-
