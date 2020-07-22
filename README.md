@@ -46,7 +46,10 @@ useEffect(() => {
 
 ## Tips
 
-* FeriadosList : replace componentDidMount -> (useState , useEffect) from React Hooks 
+* *FeriadosList* : replace componentDidMount -> (useState , useEffect) from React Hooks 
+
+* "set_currIdx": abandoned in favor of "set_currDbId", so testing "if(set_currIdx)" works for item "[0]"
+* Implies changing: "currIdx" to "currDbId"
 
 ## TODO
 

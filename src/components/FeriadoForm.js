@@ -26,22 +26,28 @@ export const FeriadoForm = (props) => {
     // NOTE: FormList Edit() -> set_currIdx (values)
     useEffect(
         () => {
-            console.log("useEffect.currIdx.props:", props);
+            // console.log("useEffect.currIdx.props:", props); // FIXME: must find which one fires the update
+            console.log("useEffect.currDbId.props:", props); // FIXME: must find which one fires the update
             // NOTE: only if empty form : currIdx===0
-            if (props.currIdx != 0) {
+            // if (props.currIdx != 0) { // FIXME: must find which one fires the update
+            if (props.currDbId != 0) { // FIXME: must find which one fires the update
                 // set_values({
                 //     ...props.feriadosList.find(x => x.id == props.currIdx)
                 // });
             }
         },
-        [props.currIdx]
+        [props.currDbId] // FIXME: must find which one fires the update
+        // [props.currIdx] // FIXME: must find which one fires the update
     )
 
     // NOTE: FormList Edit() -> set_currIdx (values)
     useEffect(() => {
+        // FIXME: never gets called
         console.log("FeriadoForm.useEffect.currDbRec.props  for currDbRec:", props);
         // NOTE: only if empty form : currIdx===0
-        if (props.currIdx != 0) {
+        // if (props.currIdx != 0) {
+        if (props.currDbId != 0) {
+            // FIXME: must set modified values !!!
             set_values({
                 // ...props.feriadosList.find(x => x.id == props.currIdx)
 
@@ -54,8 +60,9 @@ export const FeriadoForm = (props) => {
 
             });
         }
-    }, [props.currDbRec])
-    // }, [props.currIdx])
+    }, [props.currDbRec]) // FIXME: must find which one fires the update
+    // }, [props.currDbId]) // FIXME: must find which one fires the update
+    // }, [props.currIdx]) // FIXME: must find which one fires the update
 
     // NOTE: full form : validate()
     // NOTE: form field : validate(fieldname:value)
@@ -166,7 +173,7 @@ export const FeriadoForm = (props) => {
             <span className="feriado-form-head">
                 Feriado detallado
             </span>
-            
+
             <button onClick={() => set_editing(true)} >
                 Modificar
             </button>

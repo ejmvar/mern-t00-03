@@ -5,7 +5,7 @@ import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux';
 import * as actions from "../actions/FeriadoActions";
 import { FeriadoForm } from './FeriadoForm';
-import { FeriadoShow } from './FeriadoShow';
+// import { FeriadoShow } from './FeriadoShow'; // STUB - test if used
 import EditIcon from "@material-ui/icons/Edit";
 
 const FeriadosList = (props) => {
@@ -158,27 +158,33 @@ const FeriadosList = (props) => {
                 </div>
 
                 <div className="db-datum__group">
+
+
                     <div className="db-datum__area-head">
-                        <p>
-                            {!currIdx ?
+                        <div className="db-datum__area-head___title">
+                            {!currDbId ?
                                 "Indique la línea del feriado de interés para ver el detalle en esta área"
                                 :
                                 (props.feriadosList[currIdx].motivo)
-                            }</p>
-
-                        {currIdx ?
-                            <p>
-                                {currDbId} :
-                         {currIdx}
-                            </p>
+                            }
+                        {(false && currIdx) ?
+                            <p> <br/> {currDbId} : {currIdx} </p>
                             : ""
                         }
+                        </div>
+
                     </div>
+
+
+
+           
+
+                    
 
                     <div className="db-datum__rows">
                         {currDbId ?
                             <FeriadoForm
-                                {...({ currIdx, set_currIdx })}
+                                // {...({ currIdx, set_currIdx })} // FIXME: must find which one fires the update
                                 {...({ currDbId, currDbId })}
                                 {...({ currDbRec, set_currDbRec })}
                             />
