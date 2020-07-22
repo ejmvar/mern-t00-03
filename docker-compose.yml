@@ -1,0 +1,16 @@
+FROM node:current-alpine
+
+# Working dir be app
+WORKDIR /usr/app
+
+COPY package*.json ./
+
+# Install deps
+RUN yarn install
+
+# copy local files to app folder
+COPY . .
+
+EXPOSE 80
+
+CMD ["yarn","start"]
