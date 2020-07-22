@@ -9,7 +9,6 @@ export const FeriadoForm = (props) => {
     const FORM_ERROR = "Debe corregir los errores o RECHAZAR los cambios";
     const FORM_OK = "Puede ACEPTAR los cambios";
     const [r, set_r] = useState(0);
-    const [editing, set_editing] = useState(false);
 
     const values_init = {
         _id: "",
@@ -39,6 +38,7 @@ export const FeriadoForm = (props) => {
         [props.currDbId] // FIXME: must find which one fires the update
         // [props.currIdx] // FIXME: must find which one fires the update
     )
+
 
     // NOTE: FormList Edit() -> set_currIdx (values)
     useEffect(() => {
@@ -167,22 +167,22 @@ export const FeriadoForm = (props) => {
 
         }
     }
-    // const [editMe, set_editMe] = useState(false); // FIXME: must be removed from child
 
     return (
         <div className="feriado-form">
             <div>
-            {/* Listado Feriados (editMe: {editMe}) === {editMe?editMe:"-"} */}
-            Listado Feriados (editMe: {props.editMe}) === {props.editMe?props.editMe:"-"}
+            Listado Feriados
+             <p> (props.editMe: {props.editMe}) === {props.editMe ? props.editMe : "-"} </p>
+
+                <p>
+                    PROPS :
+                                             {JSON.stringify(props)}
+                </p>
 
             </div>
             <span className="feriado-form-head">
                 Feriado detallado
             </span>
-
-            <button onClick={() => set_editing(true)} >
-                Modificar
-            </button>
 
             <form autoComplete="off" noValidate className="feriado-form" onSubmit={doSubmit} >
 
@@ -192,7 +192,7 @@ export const FeriadoForm = (props) => {
                             <tr>
 
                                 <th className="z-feriado__head-label"> Campo </th>
-                                {!editing ? <th className="z-feriado__head-label"> Valor </th>
+                                {!props.editMe ? <th className="z-feriado__head-label"> Valor </th>
                                     : <th className="feriado__head-label__get"> Editado </th>
                                 }
                             </tr>
@@ -202,7 +202,7 @@ export const FeriadoForm = (props) => {
 
                         <tr>
                             <td className="feriado__value-title" > _id </td>
-                            {!editing ? <td className="feriado__value-show" > {values._id} {r._id} </td>
+                            {!props.editMe ? <td className="feriado__value-show" > {values._id} {r._id} </td>
                                 : <td className="feriado__value-get" >
                                     <input type="text"
                                         name="_id" value={values._id} onChange={doChange}
@@ -216,7 +216,7 @@ export const FeriadoForm = (props) => {
                         </tr>
                         <tr>
                             <td className="feriado__value-title" > id </td>
-                            {!editing ? <td className="feriado__value-show" > {values.id} {r.id} </td>
+                            {!props.editMe ? <td className="feriado__value-show" > {values.id} {r.id} </td>
                                 : <td className="feriado__value-get" >
                                     <input type="text"
                                         name="id" value={values.id} onChange={doChange}
@@ -230,7 +230,7 @@ export const FeriadoForm = (props) => {
                         </tr>
                         <tr>
                             <td className="feriado__value-title" > motivo </td>
-                            {!editing ? <td className="feriado__value-show" > {values.motivo} {r.motivo} </td>
+                            {!props.editMe ? <td className="feriado__value-show" > {values.motivo} {r.motivo} </td>
                                 : <td className="feriado__value-get" >
                                     <input type="text"
                                         name="motivo" value={values.motivo} onChange={doChange}
@@ -244,7 +244,7 @@ export const FeriadoForm = (props) => {
                         </tr>
                         <tr>
                             <td className="feriado__value-title" > tipo </td>
-                            {!editing ? <td className="feriado__value-show" > {values.tipo} {r.tipo} </td>
+                            {!props.editMe ? <td className="feriado__value-show" > {values.tipo} {r.tipo} </td>
                                 : <td className="feriado__value-get" >
                                     <input type="text"
                                         name="tipo" value={values.tipo} onChange={doChange}
@@ -258,7 +258,7 @@ export const FeriadoForm = (props) => {
                         </tr>
                         <tr>
                             <td className="feriado__value-title" > mes </td>
-                            {!editing ? <td className="feriado__value-show" > {values.mes} {r.mes} </td>
+                            {!props.editMe ? <td className="feriado__value-show" > {values.mes} {r.mes} </td>
                                 : <td className="feriado__value-get" >
                                     <input type="text"
                                         name="mes" value={values.mes} onChange={doChange}
@@ -272,7 +272,7 @@ export const FeriadoForm = (props) => {
                         </tr>
                         <tr>
                             <td className="feriado__value-title" > dia </td>
-                            {!editing ? <td className="feriado__value-show" > {values.dia} {r.dia} </td>
+                            {!props.editMe ? <td className="feriado__value-show" > {values.dia} {r.dia} </td>
                                 : <td className="feriado__value-get" >
                                     <input type="text"
                                         name="dia" value={values.dia} onChange={doChange}
@@ -291,11 +291,12 @@ export const FeriadoForm = (props) => {
                     Errors: {JSON.stringify(errors)}
                 </div> */}
 
-                {editing ?
+                {props.editMe ?
                     <div className="feriado__buttons">
                         <button type="submit" onSubmit={doSubmit} className="feriado__button"> Acepta </button>
                         <button type="reset" className="feriado__button"
-                            onClick={() => set_editing(false)} >
+                        // onClick={() => set_editing(false)}
+                        >
                             Rechaza </button>
                     </div>
                     : ""}
