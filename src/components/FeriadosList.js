@@ -37,7 +37,7 @@ const FeriadosList = ({ classes, ...props }) => {
 
             // --
             // export const Update = (id, data, onSuccess) => dispatch => {
-            props.doUpdtFeriados(currDbId, currDbRec,
+            props.doUpdateFeriados(currDbId, currDbRec,
                 () => {
 
                     // const r = props.feriadosList.find(x => {
