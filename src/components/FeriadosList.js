@@ -97,9 +97,9 @@ const FeriadosList = (props) => {
 
 
                     <div className="feriado-form-head">
-                        Listado Feriados (editMe: {editMe}) === {editMe?editMe:"-"}
+                        Listado Feriados (editMe: {editMe}) === {editMe ? editMe : "-"}
 
-                      </div>
+                    </div>
 
                     <div className="db-data__rows">
                         <table className="db-data__table">
@@ -126,7 +126,6 @@ const FeriadosList = (props) => {
                                                     set_currDbRec(r); // NOTE: outside of state
                                                 }
                                                 }
-
                                             >
                                                 <td>  {dbg ? r._id : ""}      </td>
                                                 <td>  {r.id}                </td>
@@ -136,8 +135,7 @@ const FeriadosList = (props) => {
                                                 <td>  {r.dia}               </td>
                                                 <td>  {dbg ? r.__v : ""}    </td>
                                                 <td>
-                                                    <button
-                                                    >
+                                                    <button>
                                                         <EditIcon color="primary"
                                                             onClick={
                                                                 () => {
@@ -170,19 +168,19 @@ const FeriadosList = (props) => {
                                 :
                                 (props.feriadosList[currIdx].motivo)
                             }
-                        {(false && currIdx) ?
-                            <p> <br/> {currDbId} : {currIdx} </p>
-                            : ""
-                        }
+                            {(false && currIdx) ?
+                                <p> <br /> {currDbId} : {currIdx} </p>
+                                : ""
+                            }
                         </div>
 
                     </div>
 
 
 
-           
 
-                    
+
+
 
                     <div className="db-datum__rows">
                         {currDbId ?

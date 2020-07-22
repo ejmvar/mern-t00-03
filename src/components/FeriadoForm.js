@@ -22,22 +22,28 @@ export const FeriadoForm = (props) => {
 
     const [errors, set_errors] = useState({});
 
-    // NOTE: FormList Edit() -> set_currIdx (values)
     useEffect(
         () => {
-            // console.log("useEffect.currIdx.props:", props); // FIXME: must find which one fires the update
-            console.log("useEffect.currDbId.props:", props); // FIXME: must find which one fires the update
-            // NOTE: only if empty form : currIdx===0
-            // if (props.currIdx != 0) { // FIXME: must find which one fires the update
-            if (props.currDbId != 0) { // FIXME: must find which one fires the update
-                // set_values({
-                //     ...props.feriadosList.find(x => x.id == props.currIdx)
-                // });
-            }
-        },
-        [props.currDbId] // FIXME: must find which one fires the update
-        // [props.currIdx] // FIXME: must find which one fires the update
+            console.warn("FeriadoForm.useEffect.currDbId",props.currDbId);
+        }
+        , [props.currDbId]
     )
+    // // NOTE: FormList Edit() -> set_currIdx (values)
+    // useEffect(
+    //     () => {
+    //         // console.log("useEffect.currIdx.props:", props); // FIXME: must find which one fires the update
+    //         console.log("useEffect.currDbId.props:", props); // FIXME: must find which one fires the update
+    //         // NOTE: only if empty form : currIdx===0
+    //         // if (props.currIdx != 0) { // FIXME: must find which one fires the update
+    //         if (props.currDbId != 0) { // FIXME: must find which one fires the update
+    //             // set_values({
+    //             //     ...props.feriadosList.find(x => x.id == props.currIdx)
+    //             // });
+    //         }
+    //     },
+    //     [props.currDbId] // FIXME: must find which one fires the update
+    //     // [props.currIdx] // FIXME: must find which one fires the update
+    // )
 
 
     // NOTE: FormList Edit() -> set_currIdx (values)
@@ -171,7 +177,7 @@ export const FeriadoForm = (props) => {
     return (
         <div className="feriado-form">
             <div>
-            Listado Feriados
+                Listado Feriados
              <p> (props.editMe: {props.editMe}) === {props.editMe ? props.editMe : "-"} </p>
 
                 <p>
@@ -186,9 +192,9 @@ export const FeriadoForm = (props) => {
 
             <form autoComplete="off" noValidate className="feriado-form" onSubmit={doSubmit} >
 
-                <table className="z-feriado-table">
+                <table className="feriado-table">
                     {(true) ? "" :
-                        <thead className="z-feriado__head">
+                        <thead className="feriado__head">
                             <tr>
 
                                 <th className="z-feriado__head-label"> Campo </th>
@@ -295,7 +301,11 @@ export const FeriadoForm = (props) => {
                     <div className="feriado__buttons">
                         <button type="submit" onSubmit={doSubmit} className="feriado__button"> Acepta </button>
                         <button type="reset" className="feriado__button"
-                        // onClick={() => set_editing(false)}
+                            // onClick={() => set_editing(false)}
+                            // onClick={() => set_values(values_init)}
+
+                            // onClick={() => props.seteditme set_values(values_init)}
+                            onClick={() => props.set_editMe("")}
                         >
                             Rechaza </button>
                     </div>
