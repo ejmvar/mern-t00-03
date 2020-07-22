@@ -271,7 +271,7 @@ const mapStateToProps = state => ({
 // NOTE: map actions to props
 const mapActionsToProps = {
     doListFeriados: actions.List,
-    doUpdtFeriados: actions.Update,
+    doUpdateFeriados: actions.Update,
 }
 
 export default connect(mapStateToProps, mapActionsToProps)(FeriadosList);

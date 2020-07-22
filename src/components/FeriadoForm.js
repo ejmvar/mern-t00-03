@@ -148,49 +148,30 @@ export const FeriadoForm = ({ classes, ...props }) => {
     const doSubmit = ev => {
         ev.preventDefault();
 
-        // console.log("FeriadoForm.doSubmit ev:", ev);
         console.log("FeriadoForm.doSubmit PRE values:", values);
-        // const { name, value } = ev.target
-        // console.log("doSubmit {name,value}:", { name, value });
-        // set_values({
-
-        // });
 
         console.log("doSubmit POS values:", values);
-        // console.log("doSubmit POS validate():", validate() );
         // NOTE: if this form only deserves validation on submit!!
         if (!validate()) {
             console.log("FeriadoForm.doSubmit !v props:", props);
             console.log("FeriadoForm.doSubmit !v FORM_ERROR:", FORM_ERROR);
             window.alert(FORM_ERROR);
         }
-        // NOTE: {props.Update(id, data, onSuccess)
-        // else{props.Update(id, data, onSuccess)}
         else {
-
             console.log("FeriadoForm.doSubmit !! props:", props);
-            // console.log("FeriadoForm.doSubmit !! FORM_ERROR:", FORM_ERROR);
             console.log("FeriadoForm.doSubmit !! props.doUpdateFeriados:", props.doUpdateFeriados);
 
             props.set_saveMe(props.currDbId);
 
-            props.set_currDbRec(  values );
+            props.set_currDbRec(values);
 
-            // props.set_saveMe({id:props.currDbId});
-            // props.set_saveMe({id:props.currDbId,values:{...values}});
-
-
-            // console.log("FeriadoForm.doSubmit !! values:", values);
-            // // console.log("FeriadoForm.doSubmit !! id:", id);
-            // console.log("FeriadoForm.doSubmit !! props.currentIdx:", props.currentIdx);
-            // console.log("FeriadoForm.doSubmit !! values:", values);
-            // // props.Update(id, data, onSuccess)
-
-            // console.log("FeriadoForm.doSubmit !! props.Update:", props.Update);
-            // console.log("FeriadoForm.doSubmit !! actions.Update:", actions.Update);
-            // // console.log("FeriadoForm.doSubmit !! doUpdateFeriados:", doUpdateFeriados);
-            // // console.log("FeriadoForm.doSubmit !! Update:", Update);
-            // actions.Update(values._id, values, () => { window.alert("Record updated") });
+            const onSuccess = () => {
+                // resetForm()
+                // addToast("Submitted successfully", { appearance: 'success' })
+                alert("Submitted successfully", { appearance: 'success' });
+            }
+            console.log("FeriadoForm.doSubmit !! props.doUpdateFeriados:", props.doUpdateFeriados);
+            // FIXME: !?!? props.doUpdateFeriados(props.currentId, values, onSuccess);
 
         }
     }
@@ -201,11 +182,11 @@ export const FeriadoForm = ({ classes, ...props }) => {
                 Listado Feriados
              <p> (props.editMe: {props.editMe}) === {props.editMe ? props.editMe : "-"} </p>
                 <p> (props.saveMe: {props.saveMe}) === {props.saveMe ? props.saveMe : "-"} </p>
+                <p> (props.dbg: {props.dbg}) === {props.dbg ? props.dbg : "-"} </p>
 
-                <p>
-                    PROPS :
-                                             {JSON.stringify(props)}
-                </p>
+                <p> PROPS : {JSON.stringify(props)} </p>
+
+                <p> VALUES : {JSON.stringify(values)} </p>
 
             </div>
             <span className="feriado-form-head">
@@ -363,7 +344,7 @@ const mapStateToProps = state => ({
 // }
 const mapActionsToProps = {
     // doListFeriados: actions.List,
-    doUpdtFeriados: actions.Update,
+    doUpdateFeriados: actions.Update,
     // NOTE: and any other actions to implement on form
 }
 
