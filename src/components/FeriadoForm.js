@@ -167,9 +167,15 @@ export const FeriadoForm = (props) => {
 
         }
     }
+    // const [editMe, set_editMe] = useState(false); // FIXME: must be removed from child
 
     return (
         <div className="feriado-form">
+            <div>
+            {/* Listado Feriados (editMe: {editMe}) === {editMe?editMe:"-"} */}
+            Listado Feriados (editMe: {props.editMe}) === {props.editMe?props.editMe:"-"}
+
+            </div>
             <span className="feriado-form-head">
                 Feriado detallado
             </span>

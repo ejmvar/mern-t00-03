@@ -20,6 +20,9 @@ const FeriadosList = (props) => {
     const [currDbId, set_currDbId] = useState(undefined);
     const [currDbRec, set_currDbRec] = useState({});
 
+    const [editMe, set_editMe] = useState(false);
+
+
     useEffect(() => {
         console.log("FeriadosList.useEffect.currDbRec", currDbRec);
 
@@ -89,13 +92,12 @@ const FeriadosList = (props) => {
                 </div>
             </div>
             <div className="db-show__area db-data__area">
-                {dbg ? "db-show__area db-data__area" : ""}
                 <div className="db-data__group">
 
 
 
                     <div className="feriado-form-head">
-                        Listado Feriados
+                        Listado Feriados (editMe: {editMe}) === {editMe?editMe:"-"}
 
                       </div>
 
@@ -142,6 +144,7 @@ const FeriadosList = (props) => {
                                                                     set_currIdx(r.id);
                                                                     set_currDbId(r._id);
                                                                     set_currDbRec(r); // NOTE: outside of state
+                                                                    set_editMe("ON"); // NOTE: editMe must propagate to forms
                                                                 }
                                                             }
                                                         />
@@ -187,6 +190,8 @@ const FeriadosList = (props) => {
                                 // {...({ currIdx, set_currIdx })} // FIXME: must find which one fires the update
                                 {...({ currDbId, currDbId })}
                                 {...({ currDbRec, set_currDbRec })}
+
+                                {...({ editMe, set_editMe })}
                             />
                             : ""}
                         {/* <p> FeriadoShow </p>
