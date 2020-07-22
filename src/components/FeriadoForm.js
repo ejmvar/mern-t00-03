@@ -26,7 +26,7 @@ export const FeriadoForm = ({ ...props }) => { // NOTE: must be immutable
         // FIXME: never gets called
         console.log("FeriadoForm.useEffect.currDbRec.props  for currDbRec:", props);
 
-        if (props.currDbId != 0) {
+        if (props.currDbId !== 0) {
             set_values({ ...props.currDbRec });
         }
     }, [props.currDbRec]) // FIXME: must find which one fires the update
@@ -43,7 +43,7 @@ export const FeriadoForm = ({ ...props }) => { // NOTE: must be immutable
         if (!prev || "mes" in prev) tmp.mes = prev.mes ? "" : "mes: no puede estar en blanco";
         if (!prev || "dia" in prev) tmp.dia = prev.dia ? "" : "dia: no puede estar en blanco";
 
-        const isOk = Object.values(tmp).every(m => m == "") // m===""
+        const isOk = Object.values(tmp).every(m => m === "") 
         set_errors({ ...tmp });
 
         return isOk;

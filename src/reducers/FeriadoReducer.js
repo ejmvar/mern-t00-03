@@ -8,8 +8,6 @@ const initState = {
 export const FeriadoReducer = (state = initState, action) => {
     switch (action.type) {
         case ACTION_TYPES.LIST:
-            console.log("FeriadoReducer.List action.type:", action.type);
-
             return {
                 ...state,
                 list: [...action.payload]
@@ -20,10 +18,8 @@ export const FeriadoReducer = (state = initState, action) => {
 
             return {
                 ...state,
-                // list: state.list.map(x => x.id == action.payload.id ? action.payload : x) // NOTE: {id,data)} into list
                 list: state.list.map(x => x._id == action.payload.id ? action.payload : x) // NOTE: {id,data)} into list
             }
-
 
         default:
             return state;
