@@ -5,8 +5,8 @@ import * as actions from "../actions/FeriadoActions";
 
 
 // export const FeriadoForm = (props) => { 
-export const FeriadoForm =  ({ classes, ...props }) => { 
-// export const FeriadoForm = (...props) => { // NOTE: must be immutable
+export const FeriadoForm = ({ classes, ...props }) => {
+    // export const FeriadoForm = (...props) => { // NOTE: must be immutable
 
     const FORM_ERROR = "Debe corregir los errores o RECHAZAR los cambios";
     const FORM_OK = "Puede ACEPTAR los cambios";
@@ -26,10 +26,10 @@ export const FeriadoForm =  ({ classes, ...props }) => {
 
     useEffect(
         () => {
-            console.warn("FeriadoForm.useEffect.currDbId:",props.currDbId);
-            console.warn("FeriadoForm.useEffect.currDbId: currDbRec",props.currDbRec);
-            console.warn("FeriadoForm.useEffect.currDbId: feriadosList",props.feriadosList);
-            console.warn("FeriadoForm.useEffect.currDbId: props",props);
+            console.warn("FeriadoForm.useEffect.currDbId:", props.currDbId);
+            console.warn("FeriadoForm.useEffect.currDbId: currDbRec", props.currDbRec);
+            console.warn("FeriadoForm.useEffect.currDbId: feriadosList", props.feriadosList);
+            console.warn("FeriadoForm.useEffect.currDbId: props", props);
             // props.feriadosList
         }
         , [props.currDbId]
@@ -163,19 +163,21 @@ export const FeriadoForm =  ({ classes, ...props }) => {
         // NOTE: {props.Update(id, data, onSuccess)
         // else{props.Update(id, data, onSuccess)}
         else {
-            console.log("FeriadoForm.doSubmit FINAL values:", values);
-            console.log("FeriadoForm.doSubmit FINAL props:", props);
-            // console.log("FeriadoForm.doSubmit FINAL id:", id);
-            console.log("FeriadoForm.doSubmit FINAL props.currentIdx:", props.currentIdx);
-            console.log("FeriadoForm.doSubmit FINAL values:", values);
-            // props.Update(id, data, onSuccess)
 
+            console.log("FeriadoForm.doSubmit FINAL props:", props);
             console.log("FeriadoForm.doSubmit FINAL props.doUpdateFeriados:", props.doUpdateFeriados);
-            console.log("FeriadoForm.doSubmit FINAL props.Update:", props.Update);
-            console.log("FeriadoForm.doSubmit FINAL actions.Update:", actions.Update);
-            // console.log("FeriadoForm.doSubmit FINAL doUpdateFeriados:", doUpdateFeriados);
-            // console.log("FeriadoForm.doSubmit FINAL Update:", Update);
-            actions.Update(values._id, values, () => { window.alert("Record updated") });
+
+            // console.log("FeriadoForm.doSubmit FINAL values:", values);
+            // // console.log("FeriadoForm.doSubmit FINAL id:", id);
+            // console.log("FeriadoForm.doSubmit FINAL props.currentIdx:", props.currentIdx);
+            // console.log("FeriadoForm.doSubmit FINAL values:", values);
+            // // props.Update(id, data, onSuccess)
+
+            // console.log("FeriadoForm.doSubmit FINAL props.Update:", props.Update);
+            // console.log("FeriadoForm.doSubmit FINAL actions.Update:", actions.Update);
+            // // console.log("FeriadoForm.doSubmit FINAL doUpdateFeriados:", doUpdateFeriados);
+            // // console.log("FeriadoForm.doSubmit FINAL Update:", Update);
+            // actions.Update(values._id, values, () => { window.alert("Record updated") });
 
         }
     }
@@ -311,7 +313,13 @@ export const FeriadoForm =  ({ classes, ...props }) => {
                             // onClick={() => set_values(values_init)}
 
                             // onClick={() => props.seteditme set_values(values_init)}
-                            onClick={() => props.set_editMe("")}
+                            onClick={() => {
+                                props.set_editMe("");
+                                props.set_editMe(false);
+                                set_values(values_init);
+                                props.set_currDbId(undefined);
+                                // set_values(values_init);
+                            }}
                         >
                             Rechaza </button>
                     </div>

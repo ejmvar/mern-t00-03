@@ -9,7 +9,7 @@ import { FeriadoForm } from './FeriadoForm';
 import EditIcon from "@material-ui/icons/Edit";
 
 // const FeriadosList = (props) => {
-const FeriadosList =  ({ classes, ...props }) => {
+const FeriadosList = ({ classes, ...props }) => {
     // NOTE: example
     // const [x, setX] = useState(0);
     // setX(5);
@@ -22,7 +22,7 @@ const FeriadosList =  ({ classes, ...props }) => {
     const [currDbRec, set_currDbRec] = useState({});
 
     const [editMe, set_editMe] = useState(false);
-    const [saveMe, set_saveMe] = useState(false);
+    const [saveMe, set_saveMe] = useState(0); // FIXME: unnecesary
 
 
     useEffect(() => {
@@ -187,15 +187,15 @@ const FeriadosList =  ({ classes, ...props }) => {
                     <div className="db-datum__rows">
                         {currDbId ?
                             <FeriadoForm
-                                // {...({ currIdx, set_currIdx })} // FIXME: must find which one fires the update
-                                {...({ currDbId, currDbId })}
+                                {...({ currDbId, set_currDbId })}
                                 {...({ currDbRec, set_currDbRec })}
-
                                 {...({ editMe, set_editMe })}
                             />
                             : ""}
-                        {/* <p> FeriadoShow </p>
-                        <FeriadoShow /> */}
+                        {/*
+                         <p> FeriadoShow </p>
+                        <FeriadoShow /> 
+                        */}
                     </div>
                 </div>
             </div>
