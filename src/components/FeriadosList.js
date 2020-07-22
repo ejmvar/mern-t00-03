@@ -48,7 +48,7 @@ const FeriadosList = ({ classes, ...props }) => {
                     //     return (x._id == currDbId);
                     // });
                     // console.log("doSubmit r:", r);
-                    window.alert("Update Done!");
+                    window.alert("Registro actualizado!");
                 }
             );
             // props.doUpdtFeriados();

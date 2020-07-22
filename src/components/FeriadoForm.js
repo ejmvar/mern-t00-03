@@ -1,4 +1,4 @@
-import React, { Component, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 
 import * as actions from "../actions/FeriadoActions";
@@ -8,8 +8,7 @@ import * as actions from "../actions/FeriadoActions";
 export const FeriadoForm = ({ ...props }) => { // NOTE: must be immutable
 
     const FORM_ERROR = "Debe corregir los errores o RECHAZAR los cambios";
-    const FORM_OK = "Puede ACEPTAR los cambios";
-    const [r, set_r] = useState(0);
+    const [r, set_r] = useState(0); // NOTE: "set_r" unused
 
     const values_init = {
         _id: "",
@@ -23,42 +22,18 @@ export const FeriadoForm = ({ ...props }) => { // NOTE: must be immutable
 
     const [errors, set_errors] = useState({});
 
-    useEffect(
-        () => {
-            console.warn("FeriadoForm.useEffect.currDbId:", props.currDbId);
-            console.warn("FeriadoForm.useEffect.currDbId: currDbRec", props.currDbRec);
-            console.warn("FeriadoForm.useEffect.currDbId: feriadosList", props.feriadosList);
-            console.warn("FeriadoForm.useEffect.currDbId: props", props);
-            // props.feriadosList
-        }
-        , [props.currDbId]
-    )
-
-    // NOTE: FormList Edit() -> set_currIdx (values)
     useEffect(() => {
         // FIXME: never gets called
         console.log("FeriadoForm.useEffect.currDbRec.props  for currDbRec:", props);
 
         if (props.currDbId != 0) {
-            // FIXME: must set modified values !!!
-            set_values({
-                // ...props.feriadosList.find(x => x.id == props.currIdx)
-
-
-                ...props.currDbRec
-                // ...values,
-                // [name]: value
-                // ...fielfValue
-
-
-            });
+            set_values({ ...props.currDbRec });
         }
     }, [props.currDbRec]) // FIXME: must find which one fires the update
 
     // NOTE: full form : validate()
     // NOTE: form field : validate(fieldname:value)
     const validate = (prev = values) => {
-        console.log("validate PRE prev:", prev);
         // NOTE: Only validate not empty values
         let tmp = {};
         if (!prev || "_id" in prev) tmp._id = prev._id ? "" : "_id: no puede estar en blanco";
@@ -103,7 +78,7 @@ export const FeriadoForm = ({ ...props }) => { // NOTE: must be immutable
             props.set_currDbRec(values);
 
             const onSuccess = () => {
-                // resetForm()
+                // resetForm() // NOTE: unnecessary, it's hidden once rejected
                 alert("FIXME: Guardado debe actualizar la lista!!", { appearance: 'success' });
             }
             console.log("FeriadoForm.doSubmit !! props.doUpdateFeriados:", props.doUpdateFeriados);
@@ -236,10 +211,7 @@ export const FeriadoForm = ({ ...props }) => { // NOTE: must be immutable
     )
 }
 
-// NOTE: simplified "mapStateToProps"
 const mapStateToProps = state => ({
-    // // list is stored at reducer FeriadoReducer
-    // // feriadosList: state.FeriadosList.list .feriadosList.list
     feriadosList: state.FeriadoReducer.list
 })
 
@@ -249,3 +221,4 @@ const mapActionsToProps = {
 }
 
 export default connect(mapStateToProps, mapActionsToProps)(FeriadoForm);
+// FIXME: mappings not available at props!!!
