@@ -1,21 +1,5 @@
 import api from "./api"
 
-
-
-// // NOTE: basic construct of "action" def (const+data)
-// export const create = (data) => {
-//     return {
-//         type: 'create',
-//         payload: data
-//     }
-// }
-
-// NOTE:  then, from Components, I'll dispatch:
-// dispatch(create({fullName:""}))
-// const dispatch = useDispatch(function)
-
-// NOTE: a better way: define all actions types
-
 export const ACTION_TYPES = {
     CREATE: "CREATE",
     DELETE: "DELETE",
@@ -33,10 +17,8 @@ const formatData = data => ({
 
 
 // and define "commands" for each action (specifying real code, reqs, etc)
-// NOTE: List === FetchAll
+
 export const List = () => dispatch => {
-    // ... operations
-    // get api request
     api.FeriadoApi().List()
         .then(
             resp => {
@@ -54,12 +36,6 @@ export const List = () => dispatch => {
 
 export const Update = (id, data, onSuccess) => dispatch => {
 
-
-    // console.log("FeriadoActions.Update id,data:", id, data);
-
-
-    // ... operations
-    // get api request
     data = formatData(data); // NOTE: (dia,mes) to numbers
     api.FeriadoApi().Update(id, data)
         .then(

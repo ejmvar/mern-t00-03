@@ -17,7 +17,6 @@ export const FeriadoShow = (props) => {
         dia: "",
     }
     const [values, set_values] = useState(values_init);
-
     const [errors, set_errors] = useState({});
 
     // NOTE: full form : validate()
@@ -33,33 +32,16 @@ export const FeriadoShow = (props) => {
         if (!prev || "dia" in prev) tmp.dia = prev.dia ? "" : "dia: no puede estar en blanco";
 
         console.log("validate PRE tmp:", tmp);
-        // set_errors({ ...tmp });
-        // console.log("validate POS tmp:", tmp);
-        // console.log("validate POS errors:", errors);
 
-        // if (prev == values)
-        if (true || prev == values)
-            // const isOk = Object.values(tmp).every(m => !m) // m===""
-            // const 
-            // isOk = Object.values(tmp).every(m => m == "") // m===""
-            tmp.FORM = Object.values(tmp).every(m => m == "") // m===""
-        // console.warn("isOk:", isOk);
-        console.warn("FS tmp.FORM isOk:", tmp.FORM);
-
-        // // tmp.FORM = isOk ? "Ok" : "notOk"
-        // tmp.FORM = isOk ? FORM_OK : FORM_ERROR
+        if (prev == values)
+            tmp.FORM = Object.values(tmp).every(m => m == "") 
 
         set_errors({ ...tmp });
-        console.log("validate POS tmp:", tmp);
-        console.log("validate POS errors:", errors);
 
-        console.log("validate FRM tmp:", tmp.FORM);
-        return Object.values(tmp).every(m => !m) // m===""
+        return Object.values(tmp).every(m => !m) 
     }
 
 
-    // NOTE: can extract this for other forms as "useForm"
-    // const {values, values_init, doChange} = useForm(values_init)
     const doChange = ev => {
         console.log("doChange ev:", ev);
         console.log("doChange PRE values:", values);
@@ -69,13 +51,11 @@ export const FeriadoShow = (props) => {
 
         set_values({
             ...values,
-            // [name]: value
             ...fielfValue
         });
 
-        console.log("doChange POS values:", values);
-        // // NOTE: if this form deserves validation on every keystroke!!
-        // // NOTE: only handles values pre-change!!
+        // NOTE: if this form deserves validation on every keystroke!!
+        // NOTE: only handles values pre-change!!
         validate();
         validate(fielfValue);
 
@@ -83,17 +63,6 @@ export const FeriadoShow = (props) => {
 
     const doSubmit = ev => {
         ev.preventDefault();
-
-        console.log("doSubmit ev:", ev);
-        console.log("doSubmit PRE values:", values);
-        // const { name, value } = ev.target
-        // console.log("doSubmit {name,value}:", { name, value });
-        // set_values({
-
-        // });
-
-        console.log("doSubmit POS values:", values);
-        // console.log("doSubmit POS validate():", validate() );
         // NOTE: if this form only deserves validation on submit!!
         if (!validate()) { window.alert(FORM_ERROR); }
     }

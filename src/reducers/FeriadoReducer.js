@@ -1,6 +1,5 @@
-// import { ACTION_TYPES } from "../actions/FeriadoActions";
-const { ACTION_TYPES, Update } = require("../actions/FeriadoActions");
 
+const { ACTION_TYPES, Update } = require("../actions/FeriadoActions");
 
 const initState = {
     list: []

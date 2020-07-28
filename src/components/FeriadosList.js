@@ -1,18 +1,11 @@
 
-
-// import React, { Component } from 'react'
 import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux';
 import * as actions from "../actions/FeriadoActions";
 import { FeriadoForm } from './FeriadoForm';
-// import { FeriadoShow } from './FeriadoShow'; // STUB - test if used
 import EditIcon from "@material-ui/icons/Edit";
 
-// const FeriadosList = (props) => {
 const FeriadosList = ({ classes, ...props }) => {
-    // NOTE: example
-    // const [x, setX] = useState(0);
-    // setX(5);
 
     const [dbg, set_dbg] = useState(false);
     const [x, setX] = useState(0);
@@ -22,7 +15,7 @@ const FeriadosList = ({ classes, ...props }) => {
     const [currDbRec, set_currDbRec] = useState({});
 
     const [editMe, set_editMe] = useState(false);
-    const [saveMe, set_saveMe] = useState(0); // FIXME: unnecesary
+    const [saveMe, set_saveMe] = useState(0);
 
 
     useEffect(() => {
@@ -78,7 +71,7 @@ const FeriadosList = ({ classes, ...props }) => {
                                                 onClick={() => {
                                                     set_currIdx(i);
                                                     set_currDbId(r._id);
-                                                    set_currDbRec(r); // NOTE: outside of state ??
+                                                    set_currDbRec(r);
                                                 }
                                                 }
                                             >
@@ -96,8 +89,8 @@ const FeriadosList = ({ classes, ...props }) => {
                                                                 () => {
                                                                     set_currIdx(r.id);
                                                                     set_currDbId(r._id);
-                                                                    set_currDbRec(r); // NOTE: outside of state
-                                                                    set_editMe("ON"); // NOTE: editMe must propagate to forms
+                                                                    set_currDbRec(r);
+                                                                    set_editMe("ON");
                                                                 }
                                                             }
                                                         />

@@ -3,12 +3,10 @@ import { connect } from 'react-redux';
 
 import * as actions from "../actions/FeriadoActions";
 
-// export const FeriadoForm = ({ classes, ...props }) => {
-// export const FeriadoForm = (...props) => { // NOTE: must be immutable
-export const FeriadoForm = ({ ...props }) => { // NOTE: must be immutable
+export const FeriadoForm = ({ ...props }) => {
 
     const FORM_ERROR = "Debe corregir los errores o RECHAZAR los cambios";
-    const [r, set_r] = useState(0); // NOTE: "set_r" unused
+    const [r, set_r] = useState(0);
 
     const values_init = {
         _id: "",
@@ -23,13 +21,12 @@ export const FeriadoForm = ({ ...props }) => { // NOTE: must be immutable
     const [errors, set_errors] = useState({});
 
     useEffect(() => {
-        // FIXME: never gets called
         console.log("FeriadoForm.useEffect.currDbRec.props  for currDbRec:", props);
 
         if (props.currDbId !== 0) {
             set_values({ ...props.currDbRec });
         }
-    }, [props.currDbRec]) // FIXME: must find which one fires the update
+    }, [props.currDbRec])
 
     // NOTE: full form : validate()
     // NOTE: form field : validate(fieldname:value)
@@ -43,15 +40,12 @@ export const FeriadoForm = ({ ...props }) => { // NOTE: must be immutable
         if (!prev || "mes" in prev) tmp.mes = prev.mes ? "" : "mes: no puede estar en blanco";
         if (!prev || "dia" in prev) tmp.dia = prev.dia ? "" : "dia: no puede estar en blanco";
 
-        const isOk = Object.values(tmp).every(m => m === "") 
+        const isOk = Object.values(tmp).every(m => m === "")
         set_errors({ ...tmp });
 
         return isOk;
     }
 
-
-    // NOTE: can extract this for other forms as "useForm"
-    // const {values, values_init, doChange} = useForm(values_init)
     const doChange = ev => {
         const { name, value } = ev.target
         const fielfValue = { [name]: value };
@@ -61,7 +55,7 @@ export const FeriadoForm = ({ ...props }) => { // NOTE: must be immutable
             ...fielfValue
         });
 
-        // // NOTE: if this form deserves validation on every keystroke!!
+        // NOTE: if this form deserves validation on every keystroke!!
         validate();
         validate(fielfValue);
     }
@@ -81,8 +75,6 @@ export const FeriadoForm = ({ ...props }) => { // NOTE: must be immutable
                 // resetForm() // NOTE: unnecessary, it's hidden once rejected
                 alert("FIXME: Guardado debe actualizar la lista!!", { appearance: 'success' });
             }
-            console.log("FeriadoForm.doSubmit !! props.doUpdateFeriados:", props.doUpdateFeriados);
-            // FIXME: !?!? props.doUpdateFeriados(props.currentId, values, onSuccess);
 
         }
     }
@@ -94,16 +86,6 @@ export const FeriadoForm = ({ ...props }) => { // NOTE: must be immutable
             </span>
             <form autoComplete="off" noValidate className="feriado-form" onSubmit={doSubmit} >
                 <table className="feriado-table">
-                    {(true) ? "" :
-                        <thead className="feriado__head">
-                            <tr>
-                                <th className="z-feriado__head-label"> Campo </th>
-                                {!props.editMe ? <th className="z-feriado__head-label"> Valor </th>
-                                    : <th className="feriado__head-label__get"> Editado </th>
-                                }
-                            </tr>
-                        </thead>
-                    }
                     <tbody className="z-feriado-body">
                         <tr>
                             <td className="feriado__value-title" > _id </td>
@@ -217,8 +199,6 @@ const mapStateToProps = state => ({
 
 const mapActionsToProps = {
     doUpdateFeriados: actions.Update,
-    // NOTE: and any other actions to implement on form
 }
 
 export default connect(mapStateToProps, mapActionsToProps)(FeriadoForm);
-// FIXME: mappings not available at props!!!
