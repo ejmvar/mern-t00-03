@@ -5,8 +5,6 @@ import { FeriadoForm } from './components/FeriadoForm';
 import FeriadosList from './components/FeriadosList';
 import { store } from './actions/store';
 import { Provider } from 'react-redux';
-// <Provider store={store}>
-// </Provider>
 
 function App() {
   return (
