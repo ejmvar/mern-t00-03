@@ -5,9 +5,27 @@
 Se detallan estos pasos en cada uno de los puntos correspondientes
 
 * Iniciar mongodb
+    ``` sh
+    cd mongodb && docker-cmpose up -d
+    ```
 * Iniciar servidor REST
+    > seguir las instruccines del proyecto back
+    ``` sh
+    cd ${BACKEND} && yarn && yarn start
+    ```
 * Iniciar frontend
+    > en esta carpeta
+    ``` sh
+    yarn && yarn start
+    ```
 * Abrir la URL del front
+    ``` sh
+    exo-open http://localhost:3000
+    ```
+    * El lanzador depende del Sistema Operativo y sus utilizades
+    * La url puede variar, según los servicios y aplicaciones que estén en ejecucuón en su entorno
+
+
 
 ## Implementación
 
