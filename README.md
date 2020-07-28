@@ -25,6 +25,10 @@ Se detallan estos pasos en cada uno de los puntos correspondientes
     * El lanzador depende del Sistema Operativo y sus utilizades
     * La url puede variar, según los servicios y aplicaciones que estén en ejecucuón en su entorno
 
+* NOTA:
+Actualmente, el acceso al servicio REST está hardcoded en *api.js*, como *UrlBase*
+
+> *Mejoras*: puede llevarse a una envvar para ser tomado en el entorno de implantación
 
 
 ## Implementación
